@@ -1,3 +1,5 @@
+@import '../../../../variables.scss';
+
 .wrapper {
   height: 50px;
   background-color: #ffffff;
@@ -76,6 +78,10 @@ nav ul li:hover {
   cursor: pointer;
 }
 
+.menu-wrapper {
+  display: none;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -109,7 +115,7 @@ nav ul li:hover {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $tablet-large) {
   .m-menu-wrapper {
     display: none;
   }
