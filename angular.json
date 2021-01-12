@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "kampong-frontend-two"
+  "defaultProject": "kampong-frontend-two",
+  "cli": {
+    "analytics": "c4e7a2a2-41c2-4f1c-b116-f205113878be"
+  }
 }
