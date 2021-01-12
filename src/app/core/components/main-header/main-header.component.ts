@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class MainHeaderComponent {
   constructor() {}
+
+  toggleMenu(): void {
+    console.log('HI');
+    const element: HTMLElement | null = document.getElementById('nav-toggle');
+    if (element) {
+      element.classList.toggle('nav-toggle');
+    }
+  }
 }
