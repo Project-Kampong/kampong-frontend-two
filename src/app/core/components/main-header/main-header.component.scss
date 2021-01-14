@@ -1,50 +1,90 @@
 @import '../../../../variables.scss';
 
-.wrapper {
+.main-header-wrapper {
   height: 50px;
+  width: 100%;
   background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 500;
 }
 
-.wrapper-div {
+.mobile-wrapper-div {
   height: inherit;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+
+  #logo {
+    margin: auto 10px auto 10px;
+    height: inherit;
+  }
 }
 
-#logo {
-  margin: auto 10px auto 10px;
-  height: 1.5rem;
+.mobile-search-div {
+  width: 70%;
+  height: fit-content;
+  margin: auto;
+  border: white solid 0.5px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  padding: 5px;
+  .mobile-search-inner-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80%;
+  }
+
+  form {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    flex-basis: 100%;
+    margin: auto 0px auto 0px;
+
+    .search-input {
+      float: left;
+      flex-basis: 100%;
+      border: none;
+      margin: auto 10px auto 10px;
+      height: 80%;
+      background-color: #f2f2f2;
+    }
+
+    textarea:focus,
+    input:focus {
+      outline: none;
+    }
+    #search-icon {
+      float: left;
+    }
+  }
 }
 
-.m-menu-wrapper {
+.mobile-menu-div {
   height: inherit;
-  width: auto;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.menu-div {
-  height: inherit;
-  width: inherit;
+  width: fit-content;
   display: flex;
   justify-content: center;
   margin: 0px 10px 0px 10px;
+
+  #menu {
+    margin: auto 0px auto 0px;
+    height: 36px;
+  }
 }
 
-#menu {
-  margin-top: auto;
-  margin-bottom: auto;
-  height: 36px;
+.nav-toggle-none {
+  display: none;
 }
 
-nav {
-  display: flex;
-  position: absolute;
-  background-color: #ddd5bd;
+.nav-toggle {
+  position: fixed;
   top: 50px;
-  left: 0;
   width: 100%;
+  left: 0;
   z-index: 500;
   animation: fadein 0.3s;
   -moz-animation: fadein 0.3s;
@@ -52,34 +92,26 @@ nav {
   -o-animation: fadein 0.3s;
 }
 
-.nav-toggle {
-  top: -25%;
-  display: none;
-  opacity: 0.1;
-}
-
-nav ul {
+.nav-toggle ul {
   list-style-type: none;
   text-align: left;
   padding-inline-start: 0;
   margin-block-start: 0;
   margin-block-end: 0;
   width: inherit;
+  position: fixed;
+  background-color: #ddd5bd;
 }
 
-nav ul li {
+.nav-toggle ul li {
   width: inherit;
   margin: 5px 0px 5px 0px;
   padding-left: 10px;
 }
 
-nav ul li:hover {
+.nav-toggle ul li:hover {
   opacity: 0.5;
   cursor: pointer;
-}
-
-.menu-wrapper {
-  display: none;
 }
 
 @keyframes fadein {
@@ -115,6 +147,8 @@ nav ul li:hover {
   }
 }
 
+/*
+
 @media screen and (min-width: $tablet-large) {
   .m-menu-wrapper {
     display: none;
@@ -123,3 +157,5 @@ nav ul li:hover {
     justify-content: space-between;
   }
 }
+
+*/
