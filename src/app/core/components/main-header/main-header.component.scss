@@ -202,6 +202,11 @@ form {
   .search-div {
     width: 55%;
   }
+  #logo {
+    height: 30px;
+    margin: auto 30px auto 50px;
+    width: auto;
+  }
 }
 
 @media screen and (min-width: $desktop-quad) {
