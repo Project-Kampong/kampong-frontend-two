@@ -49,7 +49,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
           // this.snackbarService.openSnackBar(this.snackbarService.DialogList.login.error, false);
         },
         () => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
         },
       ),
     );
