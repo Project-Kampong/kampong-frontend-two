@@ -4,11 +4,7 @@
   height: 50px;
   width: 100%;
   background-color: #ffffff;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -ms-sticky;
-  position: -o-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 500;
 }
