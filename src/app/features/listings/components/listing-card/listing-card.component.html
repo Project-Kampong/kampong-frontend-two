@@ -1,0 +1,26 @@
+<div class="featured-listing-card-wrapper">
+  <div class="card-wrapper">
+    <div class="photo-div">
+      <div class="listing-category">
+        {{ listingData.category }}
+      </div>
+      <img id="pic" src="{{ listingData.pics[0] }}" alt="" />
+    </div>
+    <div class="body-div">
+      <div class="listing-title">
+        {{ listingData.listing_title }}
+      </div>
+      <div class="listing-tagline">
+        {{ listingData.tagline }}
+      </div>
+      <div class="listing-locations" *ngIf="listingData.locations && listingData.locations.length > 0">
+        <img id="icon" src="../../../../../assets/icons/location-icon.png" alt="" />
+        <ul>
+          <li *ngFor="let location of listingData.locations">
+            {{ location }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

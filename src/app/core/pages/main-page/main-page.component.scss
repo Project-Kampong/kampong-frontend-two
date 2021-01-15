@@ -1,0 +1,27 @@
+@import '../../../../variables.scss';
+
+.main-page-listings-wrapper {
+  width: auto;
+}
+
+.main-page-listings-div {
+  height: inherit;
+  width: inherit;
+  margin: 20px;
+}
+
+.listings-title {
+  text-align: center;
+  margin: 20px;
+  color: #dfab19;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+@media screen and (min-width: $tablet-xlarge) {
+  .main-grid-listing-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+}

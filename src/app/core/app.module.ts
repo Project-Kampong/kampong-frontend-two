@@ -14,10 +14,25 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { MainSearchComponent } from './components/main-search/main-search.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
+import { MainListingGridComponent } from './components/main-listing-grid/main-listing-grid.component';
 import { LoginPageComponent } from './pages/login/login.component';
+import { ListingCardComponent } from '../features/listings/components/listing-card/listing-card.component';
+import { OrganisationCardComponent } from '../features/organisations/components/organisation-card.component';
+import { MainOrganisationGridComponent } from './components/main-organisation-grid/main-organisation-grid.component';
 
 @NgModule({
-  declarations: [AppComponent, MainPageComponent, MainHeaderComponent, MainFooterComponent, MainSearchComponent, LoginPageComponent],
+  declarations: [
+    AppComponent,
+    MainPageComponent,
+    MainHeaderComponent,
+    MainFooterComponent,
+    MainSearchComponent,
+    LoginPageComponent,
+    MainListingGridComponent,
+    ListingCardComponent,
+    MainOrganisationGridComponent,
+    OrganisationCardComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [],
   bootstrap: [AppComponent],
