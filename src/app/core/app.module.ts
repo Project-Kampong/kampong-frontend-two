@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from './environments/environment';
 
 //pages
@@ -19,6 +20,7 @@ import { LoginPageComponent } from './pages/login/login.component';
 import { ListingCardComponent } from '../features/listings/components/listing-card/listing-card.component';
 import { OrganisationCardComponent } from '../features/organisations/components/organisation-card.component';
 import { MainOrganisationGridComponent } from './components/main-organisation-grid/main-organisation-grid.component';
+import { RegisterPageComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { MainOrganisationGridComponent } from './components/main-organisation-gr
     ListingCardComponent,
     MainOrganisationGridComponent,
     OrganisationCardComponent,
+    RegisterPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [],

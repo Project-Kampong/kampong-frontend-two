@@ -81,15 +81,26 @@
             </defs>
           </svg>
         </div>
-        <form id="login-details" [formGroup]="loginCredentials">
-          <input placeholder="Email" formControlName="email" type="email" />
+        <form id="login-details" [formGroup]="registerForm">
+          <input placeholder="Username" formControlName="username" type="username" />
+          <input placeholder="email" formControlName="email" type="email" />
           <input placeholder="Password" formControlName="password" type="Password" />
-          <span class="error-msg" *ngIf="loginErrorMsg == true"> Invalid Login, try again </span>
-          <div class="btn-container">
-            <button (click)="loginUser()" type="submit" class="btn login-btn">Login</button>
-            <button routerLink="/register" class="btn register-btn">Register</button>
+          <input placeholder="Confirm Password" formControlName="confirmPassword" type="Password" />
+
+          <div class="col-lg-12 text-left mt-3">
+            <input type="checkbox" id="termsAndConditions" formControlName="termsAndCondition" />
+            <label for="termsAndConditions">I accept the terms and conditions</label>
           </div>
-          <p>Forgot <a href="#">Password</a>? too bad</p>
+
+          <div class="btn-container">
+            <button (click)="registerUser()" type="submit" class="btn login-btn">
+              Register
+              <!-- <span class="loading-btn" *ngIf="showLoading">
+                <img src="../../assets/images/loading-icon.gif" />
+              </span> -->
+            </button>
+          </div>
+          <p>Have an account? <a routerLink="/login">Login</a></p>
         </form>
       </div>
     </div>

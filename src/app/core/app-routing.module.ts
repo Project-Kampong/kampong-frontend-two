@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginPageComponent } from './pages/login/login.component';
+import { RegisterPageComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'register', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
   { path: 'home', component: LoginPageComponent, canActivate: [AuthGuard] },
   { path: 'listing/:id', component: LoginPageComponent, canActivate: [AuthGuard] },
   { path: 'create-listing', component: LoginPageComponent, canActivate: [AuthGuard] },
