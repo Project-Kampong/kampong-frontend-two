@@ -18,7 +18,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router, private fb: FormBuilder, private authService: AuthService, private cookieService: CookieService) {}
 
-  registerForm = new FormGroup({});
+  registerForm: FormGroup = new FormGroup({});
   showLoading: boolean = false;
 
   ngOnInit() {
