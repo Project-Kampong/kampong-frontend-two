@@ -91,6 +91,8 @@ form {
   -moz-animation: fadein 0.3s;
   -webkit-animation: fadein 0.3s;
   -o-animation: fadein 0.3s;
+  -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.4);
 }
 
 .nav-toggle ul {
