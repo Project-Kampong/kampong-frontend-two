@@ -1,0 +1,141 @@
+@import '../../../../variables.scss';
+
+.main-page-listings-wrapper {
+  width: auto;
+}
+
+.main-page-listings-div {
+  height: inherit;
+  width: inherit;
+  margin: 20px;
+}
+
+.title {
+  text-align: center;
+  margin: 20px;
+  color: #dfab19;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.mobile-grid-causes-div {
+  .grid-div {
+    display: block;
+  }
+
+  .cause-div {
+    padding: 5px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    margin: 15px;
+    font-weight: 600;
+
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
+  }
+}
+
+.grid-causes-div {
+  display: none;
+}
+
+@media screen and (min-width: $mobile-large) {
+  .mobile-grid-causes-div {
+    .grid-div {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-small) {
+  .mobile-grid-causes-div {
+    .grid-div {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-large) {
+  .mobile-grid-causes-div {
+    display: none;
+  }
+  .grid-causes-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .grid-div {
+      width: 80%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .img-div {
+      padding: 5px;
+      text-align: center;
+    }
+
+    img {
+      width: 40%;
+      height: auto;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .cause-div {
+      margin: auto;
+      padding: 5px;
+      font-weight: 600;
+      text-align: center;
+
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-xlarge) {
+  .main-grid-listing-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .main-grid-organisations-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .grid-causes-div {
+    .grid-div {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-full) {
+  .title {
+    margin: 50px;
+  }
+  .grid-causes-div {
+    margin: 20px;
+    .grid-div {
+      width: 70%;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .cause-div {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-quad) {
+  .grid-causes-div {
+    .grid-div {
+      width: 60%;
+    }
+  }
+}

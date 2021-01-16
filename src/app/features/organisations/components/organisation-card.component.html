@@ -1,0 +1,23 @@
+<div class="featured-organisation-card-wrapper">
+  <div class="card-wrapper">
+    <div class="body-div">
+      <div class="organisation-title">
+        {{ organisationData.name }}
+      </div>
+      <div class="organisation-type">
+        {{ organisationData.organisation_type }}
+      </div>
+      <div class="organisation-about">
+        {{ organisationData.about }}
+      </div>
+      <div class="organisation-locations" *ngIf="organisationData.locations && organisationData.locations.length > 0">
+        <img id="icon" src="../../../../../assets/icons/location-icon.png" alt="" />
+        <ul>
+          <li *ngFor="let location of organisationData.locations">
+            {{ location }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

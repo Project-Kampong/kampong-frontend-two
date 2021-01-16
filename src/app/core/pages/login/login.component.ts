@@ -25,8 +25,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     private cookieService: CookieService,
   ) {}
 
-  loginCredentials = new FormGroup({});
-  loginErrorMsg = false;
+  loginCredentials: FormGroup = new FormGroup({});
+  loginErrorMsg: boolean = false;
 
   ngOnInit() {
     this.loginCredentials = this.fb.group({

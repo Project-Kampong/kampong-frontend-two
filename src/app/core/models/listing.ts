@@ -1,3 +1,4 @@
+/*
 export interface Listing {
   listing_id: string;
   organisation_id: string;
@@ -15,8 +16,9 @@ export interface Listing {
   pics: string[];
   listing_email: string;
 }
+*/
 
-export interface ListingIndividual {
+export interface Listing {
   about: string;
   category: string;
   created_by: string;

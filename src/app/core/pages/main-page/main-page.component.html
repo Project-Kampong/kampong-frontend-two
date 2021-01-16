@@ -1,6 +1,38 @@
 <div>
   <main-header></main-header>
   <main-search></main-search>
-  <h1>this is the main page</h1>
+  <div class="main-page-listings-wrapper">
+    <div class="main-page-listings-div">
+      <div class="title">Featured Projects</div>
+      <div class="main-grid-listing-div">
+        <main-listing-grid [featuredListings]="featuredListings"></main-listing-grid>
+      </div>
+      <div class="title">Explore Causes</div>
+      <div class="mobile-grid-causes-div">
+        <div class="grid-div">
+          <div class="cell-div" *ngFor="let cause of causes">
+            <div class="cause-div">{{ cause.name }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-causes-div">
+        <div class="grid-div">
+          <div class="cell-div" *ngFor="let cause of causes">
+            <div class="img-div">
+              <img src="{{ cause.pic }}" alt="" />
+            </div>
+
+            <div class="cause-div">
+              <span>{{ cause.name }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="title">Organisations</div>
+      <div class="main-grid-organisations-div">
+        <main-organisation-grid [featuredOrganisations]="featuredOrganisations"></main-organisation-grid>
+      </div>
+    </div>
+  </div>
   <main-footer></main-footer>
 </div>
