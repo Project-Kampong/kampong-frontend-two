@@ -1,6 +1,6 @@
 export interface API {
   count: number;
-  data: any;
-  pagination: any;
+  data: unknown[];
+  pagination: unknown;
   success: boolean;
 }

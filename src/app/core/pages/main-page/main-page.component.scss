@@ -10,7 +10,7 @@
   margin: 20px;
 }
 
-.listings-title {
+.title {
   text-align: center;
   margin: 20px;
   color: #dfab19;
@@ -20,6 +20,11 @@
 
 @media screen and (min-width: $tablet-xlarge) {
   .main-grid-listing-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .main-grid-organisations-div {
     display: flex;
     justify-content: center;
     align-content: center;

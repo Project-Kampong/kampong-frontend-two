@@ -3,12 +3,15 @@
   <main-search></main-search>
   <div class="main-page-listings-wrapper">
     <div class="main-page-listings-div">
-      <div class="listings-title">Featured Projects</div>
+      <div class="title">Featured Projects</div>
       <div class="main-grid-listing-div">
         <main-listing-grid [featuredListings]="featuredListings"></main-listing-grid>
       </div>
-      <div class="listings-title">Explore Causes</div>
-      <div class="listings-title">Organisations</div>
+      <div class="title">Explore Causes</div>
+      <div class="title">Organisations</div>
+      <div class="main-grid-organisations-div">
+        <main-organisation-grid [featuredOrganisations]="featuredOrganisations"></main-organisation-grid>
+      </div>
     </div>
   </div>
   <main-footer></main-footer>
