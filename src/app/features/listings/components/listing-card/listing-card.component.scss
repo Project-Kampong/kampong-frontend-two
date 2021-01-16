@@ -1,7 +1,8 @@
 .featured-listing-card-wrapper {
   justify-content: center;
   display: flex;
-  margin: 10px;
+  margin: 20px;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
 }
 
 .card-wrapper {
@@ -31,17 +32,30 @@
   border-radius: 10px 10px 0px 0px;
   width: 100%;
   height: auto;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0) 50%);
 }
 
 .listing-title {
   margin: 15px;
   font-weight: 600;
   font-size: 1.2rem;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 .listing-tagline {
   margin: 15px;
   font-size: 0.9rem;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 .listing-locations {
