@@ -6,50 +6,50 @@ export interface Cause {
 export const causes: Cause[] = [
   {
     name: 'Animals',
-    pic: '',
+    pic: '../../../../assets/icons/animals-icon.png',
   },
   {
     name: 'Arts & Heritage',
-    pic: '',
+    pic: '../../../../assets/icons/arts-icon.png',
   },
   {
     name: 'Environment',
-    pic: '',
+    pic: '../../../../assets/icons/environment-icon.png',
   },
   {
     name: 'Education',
-    pic: '',
+    pic: '../../../../assets/icons/education-icon.png',
   },
   {
     name: 'Elderly',
-    pic: '',
+    pic: '../../../../assets/icons/elderly-icon.png',
   },
   {
     name: 'Women',
-    pic: '',
+    pic: '../../../../assets/icons/women-icon.png',
   },
   {
     name: 'Children & Youth',
-    pic: '',
+    pic: '../../../../assets/icons/animals-icon.png',
   },
   {
     name: 'Healthcare',
-    pic: '',
+    pic: '../../../../assets/icons/arts-icon.png',
   },
   {
     name: 'Migrant Workers',
-    pic: '',
+    pic: '../../../../assets/icons/environment-icon.png',
   },
   {
     name: 'Disability',
-    pic: '',
+    pic: '../../../../assets/icons/education-icon.png',
   },
   {
     name: 'Family',
-    pic: '',
+    pic: '../../../../assets/icons/elderly-icon.png',
   },
   {
     name: 'Community',
-    pic: '',
+    pic: '../../../../assets/icons/women-icon.png',
   },
 ];

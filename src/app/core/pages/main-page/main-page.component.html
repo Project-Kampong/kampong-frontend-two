@@ -15,6 +15,19 @@
           </div>
         </div>
       </div>
+      <div class="grid-causes-div">
+        <div class="grid-div">
+          <div class="cell-div" *ngFor="let cause of causes">
+            <div class="img-div">
+              <img src="{{ cause.pic }}" alt="" />
+            </div>
+
+            <div class="cause-div">
+              {{ cause.name }}
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="title">Organisations</div>
       <div class="main-grid-organisations-div">
         <main-organisation-grid [featuredOrganisations]="featuredOrganisations"></main-organisation-grid>
