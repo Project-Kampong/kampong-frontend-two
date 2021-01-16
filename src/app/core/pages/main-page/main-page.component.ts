@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ListingsService } from 'src/app/features/listings/services/listings.service';
 import { OrganisationsService } from 'src/app/features/organisations/services/organisations.service';
+import { Cause, causes } from '../../constants/causes';
 import { API } from '../../models/api';
 import { Listing } from '../../models/listing';
 import { Organisation } from '../../models/organisation';
@@ -15,6 +16,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
   featuredListings: Listing[] = [];
   featuredOrganisations: Organisation[] = [];
   subscriptions: Subscription[] = [];
+  causes: Cause[] = causes;
 
   constructor(private listingsService: ListingsService, private organisationsService: OrganisationsService) {}
   ngOnInit(): void {
@@ -36,7 +38,6 @@ export class MainPageComponent implements OnInit, OnDestroy {
       this.organisationsService.getOrganisations().subscribe(
         (res: API) => {
           this.featuredOrganisations = res['data'].slice(0, 6) as Organisation[];
-          console.log(this.featuredOrganisations);
         },
         (err) => {
           console.log(err);

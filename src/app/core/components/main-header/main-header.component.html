@@ -1,9 +1,9 @@
 <div class="main-header-wrapper">
   <div class="mobile-wrapper-div">
-    <img id="logo" src="../../../../assets/icons/kampong-icon.ico" alt="" />
+    <img routerLink="/" id="logo" src="../../../../assets/icons/kampong-icon.ico" alt="" />
     <div class="search-div">
       <div class="search-inner-div">
-        <img id="search-icon" src="../../../../assets/icons/search-icon.png" alt="" />
+        <img routerLink="/" id="search-icon" src="../../../../assets/icons/search-icon.png" alt="" />
         <form>
           <input class="search-input" type="text" id="search" name="search" placeholder="Search" />
         </form>
@@ -14,16 +14,16 @@
     </div>
     <nav id="nav-toggle" class="nav-toggle-none nav-toggle">
       <ul>
-        <li>Home</li>
+        <li routerLink="/">Home</li>
         <li>Notifications</li>
         <li>Chat</li>
         <li>Initiate</li>
-        <li>Login</li>
+        <li routerLink="/login">Login</li>
       </ul>
     </nav>
   </div>
   <div class="tablet-desktop-wrapper-div">
-    <img id="logo" src="../../../../assets/images/kampong-logo.png" alt="" />
+    <img routerLink="/" id="logo" src="../../../../assets/images/kampong-logo.png" alt="" />
     <div class="search-div">
       <div class="search-inner-div">
         <img id="search-icon" src="../../../../assets/icons/search-icon.png" alt="" />
@@ -33,33 +33,10 @@
       </div>
     </div>
     <div class="btn-div">
-      <img id="icon" logo src="../../../../assets/icons/home-icon.png" alt="" />
+      <img routerLink="/" id="icon" logo src="../../../../assets/icons/home-icon.png" alt="" />
       <img id="icon" logo src="../../../../assets/icons/notification-icon.png" alt="" />
       <img id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
       <div class="login-btn" routerLink="/login">Login</div>
     </div>
   </div>
 </div>
-
-<!--
-  <div class="wrapper-div">
-    <img id="logo" src="../../../../assets/icons/kampong-icon.ico" alt="" />
-    <div class="m-menu-wrapper">
-      <div class="menu-div" (click)="toggleMenu()">
-        <img id="menu" src="../../../../assets/icons/hamburger-icon.png" alt="" />
-      </div>
-      <nav id="nav-toggle" class="nav-toggle">
-        <ul>
-          <li>About Us</li>
-          <li>Search</li>
-          <li>Listings</li>
-          <li>Organisations</li>
-          <li>Login</li>
-        </ul>
-      </nav>
-    </div>
-    <div class="menu-wrapper">
-      <div class="nav-bar"></div>
-    </div>
-  </div>
--->

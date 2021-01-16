@@ -8,6 +8,13 @@
         <main-listing-grid [featuredListings]="featuredListings"></main-listing-grid>
       </div>
       <div class="title">Explore Causes</div>
+      <div class="mobile-grid-causes-div">
+        <div class="grid-div">
+          <div class="cell-div" *ngFor="let cause of causes">
+            <div class="cause-div">{{ cause.name }}</div>
+          </div>
+        </div>
+      </div>
       <div class="title">Organisations</div>
       <div class="main-grid-organisations-div">
         <main-organisation-grid [featuredOrganisations]="featuredOrganisations"></main-organisation-grid>
