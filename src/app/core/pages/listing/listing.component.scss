@@ -27,7 +27,7 @@
   }
 
   .row {
-    margin: 5px 0px 5px 0px;
+    margin: 10px 0px 10px 0px;
   }
 
   .category {
@@ -36,5 +36,16 @@
 
   .tagline {
     color: #5d6e2c;
+  }
+
+  .icon {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .button {
+    height: 35px;
+    margin: 0px 10px 0px 10px;
+    border-radius: 5px;
   }
 }
