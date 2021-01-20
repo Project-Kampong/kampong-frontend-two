@@ -21,6 +21,7 @@ import { ListingCardComponent } from '../features/listings/components/listing-ca
 import { OrganisationCardComponent } from '../features/organisations/components/organisation-card.component';
 import { MainOrganisationGridComponent } from './components/main-organisation-grid/main-organisation-grid.component';
 import { RegisterPageComponent } from './pages/register/register.component';
+import { ListingComponent } from './pages/listing/listing.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RegisterPageComponent } from './pages/register/register.component';
     MainOrganisationGridComponent,
     OrganisationCardComponent,
     RegisterPageComponent,
+    ListingComponent,
   ],
   imports: [
     BrowserModule,

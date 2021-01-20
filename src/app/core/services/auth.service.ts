@@ -20,7 +20,7 @@ interface OptionObject {
 export class AuthService {
   private url: string = environment.apiUrl;
   private userData: UserData = <UserData>{};
-  public isLoggedIn: boolean = false;
+  public isLoggedIn: boolean = true;
 
   // Headers
   private options: OptionObject = {
