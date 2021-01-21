@@ -7,7 +7,7 @@ import { RegisterPageComponent } from './pages/register/register.component';
 import { ListingComponent } from './pages/listing/listing.component';
 
 const routes: Routes = [
-  { path: '', component: ListingComponent },
+  { path: '', component: MainPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'home', component: LoginPageComponent, canActivate: [AuthGuard] },
