@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 
-// import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-
-// import { SnackbarSuccessComponent } from '@app/components/snackbar-success/snackbar-success.component';
-// import { SnackbarErrorComponent } from '@app/components/snackbar-error/snackbar-error.component';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SnackbarService {
-  // constructor(private _snackBar: MatSnackBar) {}
+export class NotificationService {
+  constructor(private notification: NzNotificationService) {}
 
   DialogList = {
     login: {
@@ -91,26 +88,15 @@ export class SnackbarService {
     },
   };
 
-  // horizontalPosition: MatSnackBarHorizontalPosition = 'right';
-  // verticalPosition: MatSnackBarVerticalPosition = 'top';
-
-  // openSnackBar(message: string, success: boolean) {
-  //   if (success) {
-  //     this._snackBar.openFromComponent(SnackbarSuccessComponent, {
-  //       data: message,
-  //       duration: 5000,
-  //       panelClass: 'success-dialog',
-  //       horizontalPosition: this.horizontalPosition,
-  //       verticalPosition: this.verticalPosition,
-  //     });
-  //   } else {
-  //     this._snackBar.openFromComponent(SnackbarErrorComponent, {
-  //       data: message,
-  //       duration: 5000,
-  //       panelClass: 'error-dialog',
-  //       horizontalPosition: this.horizontalPosition,
-  //       verticalPosition: this.verticalPosition,
-  //     });
-  //   }
-  // }
+  openNotification(message: string, success: boolean) {
+    if (success) {
+      this.notification.success('Success!', message).onClick.subscribe(() => {
+        console.log('notification success!');
+      });
+    } else {
+      this.notification.error('Error:', message).onClick.subscribe(() => {
+        console.log('notification error!');
+      });
+    }
+  }
 }

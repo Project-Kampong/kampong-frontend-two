@@ -17,6 +17,24 @@ import { MainSearchComponent } from './components/main-search/main-search.compon
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { LoginPageComponent } from './pages/login/login.component';
 import { RegisterPageComponent } from './pages/register/register.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzStepsModule } from 'ng-zorro-antd/steps';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzImageModule } from 'ng-zorro-antd/image';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -27,6 +45,8 @@ import { RegisterPageComponent } from './pages/register/register.component';
     MainSearchComponent,
     LoginPageComponent,
     RegisterPageComponent,
+    TermsAndConditionsComponent,
+    OnboardingComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,8 +55,18 @@ import { RegisterPageComponent } from './pages/register/register.component';
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    NzButtonModule,
+    NzNotificationModule,
+    NzFormModule,
+    NzCheckboxModule,
+    NzModalModule,
+    NzStepsModule,
+    NzGridModule,
+    NzImageModule,
+    NzDatePickerModule,
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -130,6 +130,9 @@ form {
   #icon {
     height: 24px;
   }
+  #icon:hover {
+    cursor: pointer;
+  }
   .login-btn {
     width: 25%;
     border: #ffcd43 solid 0.5px;
@@ -139,6 +142,9 @@ form {
     font-size: 1.1rem;
     text-align: center;
     background-color: #ffcd43;
+  }
+  .login-btn:hover {
+    cursor: pointer;
   }
 }
 

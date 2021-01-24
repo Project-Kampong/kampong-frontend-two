@@ -153,6 +153,12 @@ header {
         background-color: #fed45f;
         color: white;
       }
+      .login-btn:hover {
+        cursor: pointer;
+      }
+      .login-btn:disabled {
+        background-color: rgb(228, 218, 218);
+      }
       .register-btn {
         border: 1px solid #fed45f;
         color: #fed45f;
@@ -171,11 +177,13 @@ header {
 }
 
 .error-msg {
-  display: block;
+  display: flex;
   text-align: left;
   color: #f44336;
   font-size: 0.9rem;
   font-weight: 400;
+  width: 100%;
+  padding-left: 8px;
 }
 
 .res-msg {
@@ -203,4 +211,13 @@ header {
   font-family: arial, sans-serif;
   color: #069;
   cursor: pointer;
+}
+
+.terms-and-conditions-link {
+  color: blue;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
 }

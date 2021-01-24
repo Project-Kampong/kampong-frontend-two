@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { userLoginForm } from '../../forms/login';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +22,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
-    // private snackbarService: SnackbarService,
     private cookieService: CookieService,
+    private notificationService: NotificationService,
   ) {}
 
   loginCredentials = new FormGroup({});
@@ -40,16 +41,17 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.authService.loginUser(loginDetails).subscribe(
         (res) => {
-          // this.cookieService.set('token', 'something');
-          // this.snackbarService.openSnackBar(this.snackbarService.DialogList.login.success, true);
-          console.log(res);
+          this.cookieService.set('token', res['token']);
+          this.authService.setLogIn(); //temporary method to bypass auth guard
+          this.notificationService.openNotification(this.notificationService.DialogList.login.success, true);
+          console.log(this.authService.isLoggedIn);
         },
         (err) => {
           console.log(err);
-          // this.snackbarService.openSnackBar(this.snackbarService.DialogList.login.error, false);
+          this.notificationService.openNotification(this.notificationService.DialogList.login.error, false);
         },
         () => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/onboarding']);
         },
       ),
     );
