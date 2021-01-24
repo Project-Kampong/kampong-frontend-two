@@ -88,10 +88,8 @@
               <input placeholder="Username" nz-input type="username" formControlName="username" />
             </nz-form-control>
             <!-- Error Validation -->
-            <div class="error-msg" *ngIf="registerForm.get('username').hasError('required') != null">Username is required</div>
-            <div class="error-msg" *ngIf="registerForm.get('username').hasError('maxlength') != null">
-              Username must not be more than 15 characters long.
-            </div>
+            <div class="error-msg" *ngIf="registerForm.get('username').hasError('required')">Username is required</div>
+            <div class="error-msg" *ngIf="registerForm.get('username').hasError('maxlength')">Username must not be more than 15 characters long.</div>
             <!-- End of Errors Validation -->
           </nz-form-item>
           <nz-form-item>
@@ -99,8 +97,8 @@
               <input placeholder="email" nz-input type="email" formControlName="email" />
             </nz-form-control>
             <!-- Errors Validation -->
-            <div class="error-msg" *ngIf="registerForm.get('email').hasError('required') != null">Email is required</div>
-            <div class="error-msg" *ngIf="registerForm.get('email').hasError('email') != null">Invalid Email</div>
+            <div class="error-msg" *ngIf="registerForm.get('email').hasError('required')">Email is required</div>
+            <div class="error-msg" *ngIf="registerForm.get('email').hasError('email')">Invalid Email</div>
             <!-- End of Errors Validation -->
           </nz-form-item>
           <nz-form-item>
@@ -108,9 +106,9 @@
               <input placeholder="Password" nz-input type="password" formControlName="password" />
             </nz-form-control>
             <!-- Errors Validation -->
-            <div class="error-msg" *ngIf="registerForm.get('password').hasError('required') != null">Password is required</div>
-            <div class="error-msg" *ngIf="registerForm.get('password').hasError('minlength') != null">Password must at least 8 characters long</div>
-            <div class="error-msg" *ngIf="registerForm.get('password').hasError('pattern') != null">
+            <div class="error-msg" *ngIf="registerForm.get('password').hasError('required')">Password is required</div>
+            <div class="error-msg" *ngIf="registerForm.get('password').hasError('minlength')">Password must at least 8 characters long</div>
+            <div class="error-msg" *ngIf="registerForm.get('password').hasError('pattern')">
               Password must contain alphanumeric, uppercase and special characters
             </div>
             <!-- End of Errors Validation -->
@@ -120,7 +118,7 @@
               <input placeholder="Confirm Password" nz-input type="password" formControlName="confirmPassword" />
             </nz-form-control>
             <!-- Errors Validation -->
-            <div class="error-msg" *ngIf="registerForm.get('confirmPassword').hasError('mustMatch') != null">Password does not match</div>
+            <div class="error-msg" *ngIf="registerForm.get('confirmPassword').hasError('mustMatch')">Password does not match</div>
             <!-- End of Errors Validation -->
           </nz-form-item>
           <div class="col-lg-12 text-left mt-3">
