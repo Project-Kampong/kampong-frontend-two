@@ -48,7 +48,6 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
         () => {
           // this.showLoading = false;
           this.router.navigate(['/']);
-          // this.openEmailVerification();
         },
       ),
     );
