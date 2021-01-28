@@ -25,19 +25,19 @@
             <input placeholder="Username" nz-input type="nickname" formControlName="nickname" />
           </nz-form-control>
           <!-- Errors Validation -->
-          <div class="error-msg" *ngIf="editProfileForm.get('nickname').hasError('required')">Username is required (shifted to registration)</div>
-          <div class="error-msg" *ngIf="editProfileForm.get('nickname').hasError('maxlength')">
+          <div class="error-msg" *ngIf="editProfileForm.controls['nickname'].errors?.required">Username is required (shifted to registration)</div>
+          <div class="error-msg" *ngIf="editProfileForm.controls['nickname'].errors?.maxlength">
             Username must not be more than 15 characters long.
           </div>
-          <div class="error-msg" *ngIf="editProfileForm.get('nickname').hasError('pattern')">Special characters not allowed</div>
+          <div class="error-msg" *ngIf="editProfileForm.controls['nickname'].errors?.pattern">Special characters not allowed</div>
           <!-- End of Errors Validation -->
         </nz-form-item>
 
         <nz-form-item>
           <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="nickname">Date of Birth</nz-form-label>
-          <nz-date-picker formControlName="dob" [nzFormat]="dateFormat" required></nz-date-picker>
+          <nz-date-picker formControlName="dob" required></nz-date-picker>
           <!-- Errors Validation -->
-          <div class="error-msg" *ngIf="editProfileForm.get('dob').hasError('required')">Date Of Birth is required</div>
+          <div class="error-msg" *ngIf="editProfileForm.controls['dob'].errors?.required">Date Of Birth is required</div>
           <!-- End of Errors Validation -->
         </nz-form-item>
       </form>
@@ -50,11 +50,11 @@
             <input placeholder="Occupation" nz-input type="occupation" formControlName="occupation" />
           </nz-form-control>
           <!-- Errors Validation -->
-          <div class="error-msg" *ngIf="editProfileForm.get('occupation').hasError('required')">Occupation is required</div>
-          <div class="error-msg" *ngIf="editProfileForm.get('occupation').hasError('maxlength')">
+          <div class="error-msg" *ngIf="editProfileForm.controls['occupation'].errors?.required">Occupation is required</div>
+          <div class="error-msg" *ngIf="editProfileForm.controls['occupation'].errors?.maxlength">
             Occupation must not be more than 30 characters long.
           </div>
-          <div class="error-msg" *ngIf="editProfileForm.get('nickname').hasError('pattern')">Special characters not allowed</div>
+          <div class="error-msg" *ngIf="editProfileForm.controls['occupation'].errors?.pattern">Special characters not allowed</div>
           <!-- End of Errors Validation -->
         </nz-form-item>
       </form>
@@ -67,9 +67,9 @@
             <input placeholder="Tell us about yourself" nz-input type="about" formControlName="about" />
           </nz-form-control>
           <!-- Errors Validation -->
-          <div class="error-msg" *ngIf="editProfileForm.get('about').hasError('required')">About is required</div>
-          <div class="error-msg" *ngIf="editProfileForm.get('about').hasError('maxlength')">About must not be more than 1000 characters long.</div>
-          <div class="error-msg" *ngIf="editProfileForm.get('about').hasError('pattern')">Special characters not allowed</div>
+          <div class="error-msg" *ngIf="editProfileForm.controls['about'].errors?.required">About is required</div>
+          <div class="error-msg" *ngIf="editProfileForm.controls['about'].errors?.maxlength">About must not be more than 1000 characters long.</div>
+          <div class="error-msg" *ngIf="editProfileForm.controls['about'].errors?.pattern">Special characters not allowed</div>
           <!-- End of Errors Validation -->
         </nz-form-item>
       </form>

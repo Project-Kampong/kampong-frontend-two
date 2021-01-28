@@ -74,6 +74,7 @@ export class OnboardingComponent implements OnInit, OnDestroy {
       this.notificationService.openNotification(this.notificationService.DialogList.setup_profile.validation_error, false);
       return;
     }
+    console.log('somethingsomething');
     this.profileService.updateUserProfile(this.userData['user_id'], this.editProfileForm.value).subscribe(
       (res) => {
         if (true) {
