@@ -8,6 +8,8 @@ import { UserData } from '../models/user';
 import { API } from '../models/api';
 import { Observable } from 'rxjs';
 import { UserLoginData, UserRegisterData } from '../models/auth';
+import { LoginUserResponse } from '../models/backend-responses/login-user';
+import { RegisterUserResponse } from '../models/backend-responses/register-user';
 
 interface OptionObject {
   headers: HttpHeaders;
@@ -39,8 +41,8 @@ export class AuthService {
    * @param data User Details
    * @event POST
    */
-  registerUser(data: UserRegisterData): Observable<API> {
-    return this.httpClient.post<API>(this.url + 'api/auth/register', data, this.options);
+  registerUser(data: UserRegisterData): Observable<RegisterUserResponse> {
+    return this.httpClient.post<RegisterUserResponse>(this.url + 'api/auth/register', data, this.options);
   }
 
   /**
@@ -48,8 +50,15 @@ export class AuthService {
    * @param data User Details
    * @event POST
    */
-  loginUser(data: UserLoginData): Observable<API> {
-    return this.httpClient.post<API>(this.url + 'api/auth/login', data, this.options);
+  loginUser(data: UserLoginData): Observable<LoginUserResponse> {
+    return this.httpClient.post<LoginUserResponse>(this.url + 'api/auth/login', data, this.options);
+  }
+
+  /**
+   * Set Log in value to true
+   */
+  setLogIn(): void {
+    this.isLoggedIn = true;
   }
 
   /**

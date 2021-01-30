@@ -154,9 +154,15 @@ header {
         background-color: #fed45f;
         color: white;
       }
+      .login-btn:hover {
+        cursor: pointer;
+      }
       .register-btn {
         border: 1px solid #fed45f;
         color: #fed45f;
+      }
+      .register-btn:hover {
+        cursor: pointer;
       }
     }
     p {

@@ -133,6 +133,9 @@ form {
     cursor: pointer;
     height: 24px;
   }
+  #icon:hover {
+    cursor: pointer;
+  }
   .login-btn {
     cursor: pointer;
     width: 25%;
@@ -143,6 +146,9 @@ form {
     font-size: 1.1rem;
     text-align: center;
     background-color: #ffcd43;
+  }
+  .login-btn:hover {
+    cursor: pointer;
   }
 }
 

@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, ValidationErrors } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
+import { ModalService } from '../../services/modal.service';
+import { NotificationService } from '../../services/notification.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
@@ -16,10 +18,18 @@ import { MustMatch } from '../../forms/mustMatch';
 export class RegisterPageComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
-  constructor(private router: Router, private fb: FormBuilder, private authService: AuthService, private cookieService: CookieService) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private cookieService: CookieService,
+    private modalService: ModalService,
+    private notificationService: NotificationService,
+  ) {}
 
   registerForm: FormGroup = new FormGroup({});
   showLoading: boolean = false;
+  isVisible: boolean = true;
 
   ngOnInit() {
     this.registerForm = this.fb.group(
@@ -31,49 +41,39 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   }
 
   registerUser(): void {
-    console.log('button clicked');
-    console.log(this.registerForm.value);
     this.subscriptions.push(
       this.authService.registerUser(this.registerForm.value).subscribe(
         (res) => {
-          // this.cookieService.set('token', res['token']);
-          // this.snackbarService.openSnackBar(this.snackbarService.DialogList.register.success, true);
+          this.cookieService.set('token', res['token']);
+          this.authService.setLogIn(); //temporary method to bypass auth guard
+          this.notificationService.openNotification(this.notificationService.DialogList.register.success, true);
           console.log(res);
         },
         (err) => {
           console.log(err);
-          // this.snackbarService.openSnackBar(err.error.error, false);
-          // this.snackbarService.openSnackBar(this.snackbarService.DialogList.register.error, false);
+          this.notificationService.openNotification(err.error.error, false);
         },
         () => {
-          // this.showLoading = false;
           this.router.navigate(['/']);
-          // this.openEmailVerification();
+          this.openEmailVerification();
         },
       ),
     );
   }
 
   openEmailVerification(): void {
-    // const dialogRef = this.dialog.open(DialogComponent, {
-    //   data: {
-    //     title: 'Verify Email',
-    //     content: `An Email containing a verification link has been sent to your email. Please click on the link to activate your account.
-    //     <p></p><p>You will <b>NOT</b> be able to use the functionalities of this application without verifying your account. </p>
-    //     *this modal will not be closable till the verification link is clicked*
-    //     <br /><p></p><a target="_blank" href="https://github.com/Project-Kampong/kampong-frontend">Resend activation email</a>`,
-    //   },
-    // });
+    this.modalService.openModal(
+      'Verify Email',
+      `An Email containing a verification link has been sent to your email. Please click on the link to activate your account.
+        <p></p><p>You will <b>NOT</b> be able to use the functionalities of this application without verifying your account. </p>
+        *this modal will not be closable till the verification link is clicked*
+        <br /><p></p><a target="_blank" href="https://github.com/Project-Kampong/kampong-frontend">Resend activation email</a>`,
+      600,
+    );
     console.log('open email verification');
   }
 
   getFormValidationErrors(): boolean {
-    // if (this.registerForm.controls.first_name.errors !== null) {
-    //   return true;
-    // }
-    // if (this.registerForm.controls.last_name.errors !== null) {
-    //   return true;
-    // }
     if (this.registerForm.controls.username.errors !== null) {
       return true;
     }
