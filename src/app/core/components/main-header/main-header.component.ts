@@ -1,12 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ProfileService } from 'src/app/features/profile/services/profile.service';
+import { Profile } from '../../models/profile';
+import { UserData } from '../../models/user';
+import { AuthService } from '../../services/auth.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'main-header',
   templateUrl: './main-header.component.html',
   styleUrls: ['./main-header.component.scss'],
 })
-export class MainHeaderComponent {
-  constructor() {}
+export class MainHeaderComponent implements OnInit, OnDestroy {
+  subscriptions: Subscription[] = [];
+  isLoggedIn: boolean = false;
+  private userData: UserData = <UserData>{};
+  profileData: Profile = <Profile>{};
+
+  constructor(private authService: AuthService, private profileService: ProfileService, private notificationService: NotificationService) {}
+
+  ngOnInit() {
+    if (this.authService.checkCookie()) {
+      this.subscriptions.push(
+        this.authService.getUserDataByToken().subscribe(
+          (res) => {
+            this.userData = res['data'] as any;
+            this.subscriptions.push(
+              this.profileService.getUserProfile(this.userData['user_id']).subscribe(
+                (res) => {
+                  this.profileData = res['data'] as any;
+                  this.isLoggedIn = true;
+                  console.log(this.profileData);
+                },
+                (err) => {
+                  console.log(err);
+                },
+              ),
+            );
+          },
+          (err) => {
+            console.log(err);
+            console.log('User is not logged in');
+          },
+        ),
+      );
+    }
+  }
+
+  logoutUser(): void {
+    this.isLoggedIn = false;
+    this.notificationService.openNotification(this.notificationService.dialogList.logout.success, true);
+    this.authService.logoutUser();
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
+  }
 
   toggleMenu(): void {
     const element: HTMLElement | null = document.getElementById('nav-toggle');

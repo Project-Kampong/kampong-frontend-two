@@ -8,10 +8,14 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 export class NotificationService {
   constructor(private notification: NzNotificationService) {}
 
-  DialogList = {
+  dialogList = {
     login: {
       success: 'Welcome to Kampong',
       error: 'Login failed, please try again',
+    },
+    logout: {
+      success: 'Logged out',
+      error: 'Logout failed, please try again',
     },
     register: {
       success: 'Please verify your email',

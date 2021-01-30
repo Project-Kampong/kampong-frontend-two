@@ -97,6 +97,7 @@ form {
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.4);
 }
 
+/*
 .nav-toggle ul {
   list-style-type: none;
   text-align: left;
@@ -118,9 +119,64 @@ form {
   opacity: 0.5;
   cursor: pointer;
 }
+*/
 
 .tablet-desktop-wrapper-div {
   display: none;
+}
+
+.nav-pane {
+  position: fixed;
+  width: 50%;
+  z-index: 500;
+  left: 50%;
+  background-color: #f2f2f2;
+  border: #f2f2f2 solid 1.5px;
+  border-radius: 0px 0px 0px 20px;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
+}
+
+.mobile-profile-div {
+  margin: 10px;
+  .mobile-profile-info {
+    display: block;
+  }
+  img {
+    width: 50%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    max-width: 100px;
+  }
+  #nickname {
+    font-size: 1.25rem;
+    align-content: center;
+    justify-content: center;
+  }
+  #occupation {
+    font-size: 0.8rem;
+    align-content: center;
+    justify-content: center;
+  }
+}
+
+.mobile-btn-div {
+  margin: 5%;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.mobile-btn-row {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  img {
+    height: 25px;
+    margin: 10px;
+  }
+  span {
+    text-align: right;
+  }
 }
 
 .btn-div {
@@ -182,6 +238,22 @@ form {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: $mobile-large) {
+  .mobile-profile-div {
+    display: flex;
+    .mobile-profile-info {
+      display: block;
+      margin: 20px;
+    }
+    #nickname {
+      font-size: 1.25rem;
+    }
+    #occupation {
+      font-size: 0.9rem;
+    }
   }
 }
 

@@ -13,13 +13,41 @@
       <img id="menu" src="../../../../assets/icons/hamburger-icon.png" alt="" />
     </div>
     <nav id="nav-toggle" class="nav-toggle-none nav-toggle">
-      <ul>
-        <li routerLink="/">Home</li>
-        <li>Notifications</li>
-        <li>Chat</li>
-        <li>Initiate</li>
-        <li routerLink="/login">Login</li>
-      </ul>
+      <div class="nav-pane">
+        <div class="mobile-btn-div">
+          <div *ngIf="isLoggedIn" class="mobile-profile-div">
+            <img src="{{ profileData.profile_picture }}" alt="" />
+            <div class="mobile-profile-info">
+              <div id="nickname">{{ profileData.nickname }}</div>
+              <div id="occupation">{{ profileData.occupation }}</div>
+            </div>
+          </div>
+          <div class="mobile-btn-row">
+            <img routerLink="/" id="icon" logo src="../../../../assets/icons/home-icon.png" alt="" />
+            <span routerLink="/">Home</span>
+          </div>
+          <div *ngIf="isLoggedIn" class="mobile-btn-row">
+            <img id="icon" logo src="../../../../assets/icons/profile-icon.png" alt="" />
+            <span>Profile</span>
+          </div>
+          <div *ngIf="isLoggedIn" class="mobile-btn-row">
+            <img id="icon" logo src="../../../../assets/icons/notification-icon.png" alt="" />
+            <span>Notifications</span>
+          </div>
+          <div *ngIf="isLoggedIn" class="mobile-btn-row">
+            <img id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
+            <span>Chat</span>
+          </div>
+          <div *ngIf="!isLoggedIn" class="mobile-btn-row">
+            <img routerLink="/login" id="icon" logo src="../../../../assets/icons/login-icon.png" alt="" />
+            <span routerLink="/login">Login</span>
+          </div>
+          <div *ngIf="isLoggedIn" class="mobile-btn-row">
+            <img (click)="logoutUser()" id="icon" logo src="../../../../assets/icons/logout-icon.png" alt="" />
+            <span (click)="logoutUser()">Logout</span>
+          </div>
+        </div>
+      </div>
     </nav>
   </div>
   <div class="tablet-desktop-wrapper-div">
@@ -34,9 +62,19 @@
     </div>
     <div class="btn-div">
       <img routerLink="/" id="icon" logo src="../../../../assets/icons/home-icon.png" alt="" />
-      <img id="icon" logo src="../../../../assets/icons/notification-icon.png" alt="" />
-      <img id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
-      <div class="login-btn" routerLink="/login">Login</div>
+      <img *ngIf="isLoggedIn" id="icon" logo src="../../../../assets/icons/notification-icon.png" alt="" />
+      <img *ngIf="isLoggedIn" id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
+      <div *ngIf="!isLoggedIn" class="login-btn" routerLink="/login">Login</div>
     </div>
   </div>
 </div>
+
+<!--
+        <ul>
+        <li routerLink="/">Home</li>
+        <li>Notifications</li>
+        <li>Chat</li>
+        <li>Initiate</li>
+        <li routerLink="/login">Login</li>
+      </ul>
+-->

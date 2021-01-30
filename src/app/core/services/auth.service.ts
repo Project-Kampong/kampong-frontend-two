@@ -86,7 +86,6 @@ export class AuthService {
     this.isLoggedIn = false;
     this.userData = <UserData>{};
     this.authOptions = <OptionObject>{};
-    window.location.href = '/login';
   }
 
   /**
