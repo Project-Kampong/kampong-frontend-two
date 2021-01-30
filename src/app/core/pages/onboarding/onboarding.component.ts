@@ -40,11 +40,11 @@ export class OnboardingComponent implements OnInit, OnDestroy {
       this.subscriptions.push(
         this.authService.getUserDataByToken().subscribe(
           (res) => {
-            this.userData = res['data'];
+            this.userData = res['data'] as any; //Fix
             this.subscriptions.push(
               this.profileService.getUserProfile(this.userData['user_id']).subscribe(
                 (res) => {
-                  this.profileData = res['data'];
+                  this.profileData = res['data'] as any;
                   this.editProfileForm.patchValue(this.profileData);
                   this.isLoggedIn = true;
                   console.log(this.profileData);
