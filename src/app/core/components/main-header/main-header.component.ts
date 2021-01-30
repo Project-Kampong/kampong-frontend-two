@@ -14,6 +14,9 @@ import { NotificationService } from '../../services/notification.service';
 export class MainHeaderComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
   isLoggedIn: boolean = false;
+  isProfileDropdown: boolean = false;
+  isNotificationDropdown: boolean = false;
+  isChatDropdown: boolean = false;
   private userData: UserData = <UserData>{};
   profileData: Profile = <Profile>{};
 
@@ -45,6 +48,7 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
         ),
       );
     }
+    this.logoutUser = this.logoutUser.bind(this);
   }
 
   logoutUser(): void {
@@ -55,6 +59,28 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptions.forEach((sub) => sub.unsubscribe());
+  }
+
+  toggleProfile(): void {
+    const element: HTMLElement | null = document.getElementById('dropdown');
+    if (element) {
+      this.isProfileDropdown = !this.isProfileDropdown;
+      this.isChatDropdown = false;
+      this.isNotificationDropdown = false;
+      element.classList.toggle('rotate-dropdown');
+    }
+  }
+
+  toggleNotification(): void {
+    this.isChatDropdown = false;
+    this.isProfileDropdown = false;
+    this.isNotificationDropdown = !this.isNotificationDropdown;
+  }
+
+  toggleChat(): void {
+    this.isNotificationDropdown = false;
+    this.isProfileDropdown = false;
+    this.isChatDropdown = !this.isChatDropdown;
   }
 
   toggleMenu(): void {

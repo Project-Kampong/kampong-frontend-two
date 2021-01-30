@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from './environments/environment';
 
 //pages
@@ -38,6 +38,9 @@ import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzImageModule } from 'ng-zorro-antd/image';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { HeaderProfileComponent } from '../features/profile/components/header-profile/header-profile.component';
+import { HeaderNotificationComponent } from '../features/notifications/components/header-notification/header-notification.component';
+import { HeaderChatComponent } from '../features/chat/components/header-chat/header-chat.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -55,6 +58,9 @@ registerLocaleData(en);
     RegisterPageComponent,
     TermsAndConditionsComponent,
     OnboardingComponent,
+    HeaderProfileComponent,
+    HeaderNotificationComponent,
+    HeaderChatComponent,
   ],
   imports: [
     BrowserModule,

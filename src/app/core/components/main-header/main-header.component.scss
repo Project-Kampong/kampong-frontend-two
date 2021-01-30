@@ -179,6 +179,10 @@ form {
   }
 }
 
+.rotate-dropdown {
+  transform: rotate(180deg);
+}
+
 .btn-div {
   height: inherit;
   width: 35%;
@@ -225,10 +229,12 @@ form {
       max-width: 60px;
     }
     .nickname-div {
+      cursor: pointer;
       display: none;
       float: left;
     }
     #dropdown {
+      cursor: pointer;
       float: left;
       margin: 15px;
     }

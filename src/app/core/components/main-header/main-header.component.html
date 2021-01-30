@@ -66,16 +66,19 @@
     </div>
     <div class="btn-div">
       <img routerLink="/" id="icon" logo src="../../../../assets/icons/home-icon.png" alt="" />
-      <img *ngIf="isLoggedIn" id="icon" logo src="../../../../assets/icons/notification-icon.png" alt="" />
-      <img *ngIf="isLoggedIn" id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
+      <img (click)="toggleNotification()" *ngIf="isLoggedIn" id="icon" logo src="../../../../assets/icons/notification-icon.png" alt="" />
+      <img (click)="toggleChat()" *ngIf="isLoggedIn" id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
       <div *ngIf="!isLoggedIn" class="login-btn" routerLink="/login">Login</div>
       <div *ngIf="isLoggedIn" class="init-btn">Initiate</div>
       <div *ngIf="isLoggedIn" class="profile-div">
+        <header-profile *ngIf="isProfileDropdown" [logoutUser]="logoutUser" [profileData]="profileData"></header-profile>
         <img id="profile-picture" src="{{ profileData.profile_picture }}" alt="" />
-        <div class="nickname-div">{{ profileData.nickname }}</div>
-        <img id="dropdown" src="../../../../assets/icons/dropdown-icon.png" alt="" />
+        <div (click)="toggleProfile()" class="nickname-div">{{ profileData.nickname }}</div>
+        <img (click)="toggleProfile()" id="dropdown" src="../../../../assets/icons/dropdown-icon.png" alt="" />
       </div>
     </div>
+    <header-notification *ngIf="isNotificationDropdown"></header-notification>
+    <header-chat *ngIf="isChatDropdown"></header-chat>
   </div>
 </div>
 
