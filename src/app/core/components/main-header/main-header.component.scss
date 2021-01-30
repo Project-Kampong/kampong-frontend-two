@@ -292,7 +292,7 @@ form {
 
 @media screen and (min-width: $tablet-large) {
   .main-header-wrapper {
-    position: relative;
+    position: fixed;
     height: 80px;
   }
   .mobile-wrapper-div {
