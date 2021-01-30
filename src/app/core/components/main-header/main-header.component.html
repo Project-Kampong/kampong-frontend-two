@@ -27,16 +27,20 @@
             <span routerLink="/">Home</span>
           </div>
           <div *ngIf="isLoggedIn" class="mobile-btn-row">
-            <img id="icon" logo src="../../../../assets/icons/profile-icon.png" alt="" />
-            <span>Profile</span>
-          </div>
-          <div *ngIf="isLoggedIn" class="mobile-btn-row">
             <img id="icon" logo src="../../../../assets/icons/notification-icon.png" alt="" />
             <span>Notifications</span>
           </div>
           <div *ngIf="isLoggedIn" class="mobile-btn-row">
             <img id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
             <span>Chat</span>
+          </div>
+          <div *ngIf="isLoggedIn" class="mobile-btn-row">
+            <img id="icon" logo src="../../../../assets/icons/profile-icon.png" alt="" />
+            <span>Profile</span>
+          </div>
+          <div *ngIf="isLoggedIn" class="mobile-btn-row">
+            <img id="icon" logo src="../../../../assets/icons/initiate-icon.png" alt="" />
+            <span>Initiate</span>
           </div>
           <div *ngIf="!isLoggedIn" class="mobile-btn-row">
             <img routerLink="/login" id="icon" logo src="../../../../assets/icons/login-icon.png" alt="" />
@@ -65,6 +69,12 @@
       <img *ngIf="isLoggedIn" id="icon" logo src="../../../../assets/icons/notification-icon.png" alt="" />
       <img *ngIf="isLoggedIn" id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
       <div *ngIf="!isLoggedIn" class="login-btn" routerLink="/login">Login</div>
+      <div *ngIf="isLoggedIn" class="init-btn">Initiate</div>
+      <div *ngIf="isLoggedIn" class="profile-div">
+        <img id="profile-picture" src="{{ profileData.profile_picture }}" alt="" />
+        <div class="nickname-div">{{ profileData.nickname }}</div>
+        <img id="dropdown" src="../../../../assets/icons/dropdown-icon.png" alt="" />
+      </div>
     </div>
   </div>
 </div>

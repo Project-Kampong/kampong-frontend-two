@@ -181,7 +181,7 @@ form {
 
 .btn-div {
   height: inherit;
-  width: 25%;
+  width: 35%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -192,7 +192,9 @@ form {
   #icon:hover {
     cursor: pointer;
   }
-  .login-btn {
+
+  .login-btn,
+  .init-btn {
     cursor: pointer;
     width: 25%;
     border: #ffcd43 solid 0.5px;
@@ -203,8 +205,33 @@ form {
     text-align: center;
     background-color: #ffcd43;
   }
-  .login-btn:hover {
+
+  .login-btn:hover,
+  .init-btn:hover {
     cursor: pointer;
+  }
+
+  .profile-div {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #profile-picture {
+      float: left;
+      width: 40%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      cursor: pointer;
+      max-width: 60px;
+    }
+    .nickname-div {
+      display: none;
+      float: left;
+    }
+    #dropdown {
+      float: left;
+      margin: 15px;
+    }
   }
 }
 
@@ -287,6 +314,27 @@ form {
   .search-div {
     width: 55%;
   }
+
+  .btn-div {
+    .profile-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .nickname-div {
+        margin: 15px;
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      #dropdown {
+        height: max-content;
+        margin: 5px 0 5px 0;
+      }
+    }
+  }
+
   #logo {
     height: 30px;
     margin: auto 30px auto 50px;
