@@ -1,0 +1,50 @@
+.wrapper {
+  background-color: white;
+  width: 300px;
+  top: 80px;
+  margin-top: 10px;
+  height: fit-content;
+  position: fixed;
+  z-index: 500;
+  right: 1%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+}
+
+.profile-div {
+  display: flex;
+  .title-div {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+  }
+  img {
+    margin: 10% 10% 10%;
+    width: 20%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+  #nickname {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  #profile {
+    color: #c69e19;
+    text-decoration: underline;
+  }
+}
+
+.line {
+  margin: 5%;
+  border: 1px solid #eeeeee;
+}
+
+.link-div {
+  margin: 0 10% 10%;
+  div {
+    margin: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}

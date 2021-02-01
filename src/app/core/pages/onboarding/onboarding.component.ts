@@ -71,7 +71,7 @@ export class OnboardingComponent implements OnInit, OnDestroy {
 
   saveProfile() {
     if (this.getFormValidationErrors()) {
-      this.notificationService.openNotification(this.notificationService.DialogList.setup_profile.validation_error, false);
+      this.notificationService.openNotification(this.notificationService.dialogList.setup_profile.validation_error, false);
       return;
     }
     console.log('somethingsomething');
@@ -90,12 +90,12 @@ export class OnboardingComponent implements OnInit, OnDestroy {
         }
         //this.authService.LoginResponse.emit();
         console.log(res);
-        this.notificationService.openNotification(this.notificationService.DialogList.setup_profile.success, true);
+        this.notificationService.openNotification(this.notificationService.dialogList.setup_profile.success, true);
         this.router.navigate(['/profile']);
       },
       (err) => {
         console.log(err);
-        this.notificationService.openNotification(this.notificationService.DialogList.setup_profile.error, false);
+        this.notificationService.openNotification(this.notificationService.dialogList.setup_profile.error, false);
         this.router.navigate(['/profile']);
       },
     );

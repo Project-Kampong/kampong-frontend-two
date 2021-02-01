@@ -43,12 +43,12 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         (res) => {
           this.cookieService.set('token', res['token']);
           this.authService.setLogIn(); //temporary method to bypass auth guard
-          this.notificationService.openNotification(this.notificationService.DialogList.login.success, true);
+          this.notificationService.openNotification(this.notificationService.dialogList.login.success, true);
           console.log(this.authService.isLoggedIn);
         },
         (err) => {
           console.log(err);
-          this.notificationService.openNotification(this.notificationService.DialogList.login.error, false);
+          this.notificationService.openNotification(this.notificationService.dialogList.login.error, false);
         },
         () => {
           this.router.navigate(['/onboarding']);
@@ -68,7 +68,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       this.loginCredentials.value.password == ""
     ) {
       this.SnackbarService.openSnackBar(
-        this.SnackbarService.DialogList.login.error,
+        this.SnackbarService.dialogList.login.error,
         false
       );
     } else {

@@ -97,6 +97,7 @@ form {
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.4);
 }
 
+/*
 .nav-toggle ul {
   list-style-type: none;
   text-align: left;
@@ -118,14 +119,73 @@ form {
   opacity: 0.5;
   cursor: pointer;
 }
+*/
 
 .tablet-desktop-wrapper-div {
   display: none;
 }
 
+.nav-pane {
+  position: fixed;
+  width: 50%;
+  z-index: 500;
+  left: 50%;
+  background-color: #f2f2f2;
+  border: #f2f2f2 solid 1.5px;
+  border-radius: 0px 0px 0px 20px;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
+}
+
+.mobile-profile-div {
+  margin: 10px;
+  .mobile-profile-info {
+    display: block;
+  }
+  img {
+    width: 50%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    max-width: 100px;
+  }
+  #nickname {
+    font-size: 1.25rem;
+    align-content: center;
+    justify-content: center;
+  }
+  #occupation {
+    font-size: 0.8rem;
+    align-content: center;
+    justify-content: center;
+  }
+}
+
+.mobile-btn-div {
+  margin: 5%;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.mobile-btn-row {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  img {
+    height: 25px;
+    margin: 10px;
+  }
+  span {
+    text-align: right;
+  }
+}
+
+.rotate-dropdown {
+  transform: rotate(180deg);
+}
+
 .btn-div {
   height: inherit;
-  width: 25%;
+  width: 35%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -136,7 +196,9 @@ form {
   #icon:hover {
     cursor: pointer;
   }
-  .login-btn {
+
+  .login-btn,
+  .init-btn {
     cursor: pointer;
     width: 25%;
     border: #ffcd43 solid 0.5px;
@@ -147,8 +209,35 @@ form {
     text-align: center;
     background-color: #ffcd43;
   }
-  .login-btn:hover {
+
+  .login-btn:hover,
+  .init-btn:hover {
     cursor: pointer;
+  }
+
+  .profile-div {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #profile-picture {
+      float: left;
+      width: 40%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      cursor: pointer;
+      max-width: 60px;
+    }
+    .nickname-div {
+      cursor: pointer;
+      display: none;
+      float: left;
+    }
+    #dropdown {
+      cursor: pointer;
+      float: left;
+      margin: 15px;
+    }
   }
 }
 
@@ -185,9 +274,25 @@ form {
   }
 }
 
+@media screen and (min-width: $mobile-large) {
+  .mobile-profile-div {
+    display: flex;
+    .mobile-profile-info {
+      display: block;
+      margin: 20px;
+    }
+    #nickname {
+      font-size: 1.25rem;
+    }
+    #occupation {
+      font-size: 0.9rem;
+    }
+  }
+}
+
 @media screen and (min-width: $tablet-large) {
   .main-header-wrapper {
-    position: relative;
+    position: fixed;
     height: 80px;
   }
   .mobile-wrapper-div {
@@ -215,6 +320,27 @@ form {
   .search-div {
     width: 55%;
   }
+
+  .btn-div {
+    .profile-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .nickname-div {
+        margin: 15px;
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      #dropdown {
+        height: max-content;
+        margin: 5px 0 5px 0;
+      }
+    }
+  }
+
   #logo {
     height: 30px;
     margin: auto 30px auto 50px;
