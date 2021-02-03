@@ -74,8 +74,6 @@
       display: flex;
       list-style-type: none;
       justify-content: flex-start;
-      // justify-content: center;
-      // text-align: center;
 
       li {
         margin: 0px 20px 0px 0px;
@@ -84,6 +82,7 @@
 
         a {
           text-decoration: none;
+          color: #939393;
         }
       }
       .active {
@@ -91,6 +90,65 @@
         a {
           color: #755f33;
         }
+      }
+    }
+  }
+
+  .overview-stats {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .container {
+      margin-bottom: 20px;
+
+      .row {
+        padding: 0px 10px 1px 20px;
+      }
+
+      ul {
+        margin-top: 10px;
+        list-style-type: none;
+        padding: 0px;
+        display: flex;
+
+        li {
+          margin-right: 10px;
+          color: #755f33;
+          font-size: 14px;
+        }
+      }
+
+      .org-detail {
+        font-size: 14px;
+        color: #a4a4a4;
+      }
+
+      .links {
+        font-size: 12px;
+        color: #ffcd43;
+
+        .website {
+          flex: 50%;
+          float: left;
+        }
+
+        .area {
+          flex: 50%;
+          float: right;
+        }
+      }
+    }
+
+    .overview {
+      padding: 10px 0px 0px 20px;
+    }
+
+    .stats {
+      .row {
+        font-size: 12px;
+        color: #939393;
       }
     }
   }
