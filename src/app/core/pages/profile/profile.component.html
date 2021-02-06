@@ -1,4 +1,9 @@
 <main-header></main-header>
 <div class="wrapper">
-  <profile-about [profileData]="profileData"></profile-about>
+  <div class="profile-top">
+    <profile-about [profileData]="profileData"></profile-about>
+  </div>
+  <div class="profile-bottom">
+    <profile-info [profileData]="profileData"></profile-info>
+  </div>
 </div>

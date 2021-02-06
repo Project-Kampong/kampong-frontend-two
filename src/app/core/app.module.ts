@@ -45,6 +45,7 @@ registerLocaleData(en);
 import { ProfilePageComponent } from './pages/profile/profile.component';
 import { ListingPageComponent } from './pages/listing/listing.component';
 import { ProfileAboutComponent } from '../features/profile/components/profile-about/profile-about.component';
+import { ProfileInfoComponent } from '../features/profile/components/profile-info/profile-info.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ProfileAboutComponent } from '../features/profile/components/profile-ab
     ListingPageComponent,
     ProfilePageComponent,
     ProfileAboutComponent,
+    ProfileInfoComponent,
   ],
   imports: [
     BrowserModule,
