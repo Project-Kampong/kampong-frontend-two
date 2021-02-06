@@ -11,4 +11,5 @@ export class HeaderProfileComponent {
 
   @Input() profileData: Profile = <Profile>{};
   @Input() logoutUser: Function = () => true;
+  @Input() routeToProfile: Function = () => true;
 }

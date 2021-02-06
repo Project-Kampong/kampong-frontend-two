@@ -6,6 +6,7 @@ import { LoginPageComponent } from './pages/login/login.component';
 import { RegisterPageComponent } from './pages/register/register.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { ListingPageComponent } from './pages/listing/listing.component';
+import { ProfilePageComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -17,9 +18,9 @@ const routes: Routes = [
   { path: 'organisation/:id', component: LoginPageComponent, canActivate: [AuthGuard] },
   { path: 'create-organisation', component: LoginPageComponent, canActivate: [AuthGuard] },
   { path: 'edit/:id', component: LoginPageComponent, canActivate: [AuthGuard] },
-  { path: 'profile', component: LoginPageComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'edit-profile', component: LoginPageComponent, canActivate: [AuthGuard] },
-  { path: 'profile/:id', component: LoginPageComponent, canActivate: [AuthGuard] },
+  { path: 'profile/:id', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'onboarding', component: OnboardingComponent, canActivate: [AuthGuard] },
   { path: 'search', component: LoginPageComponent },
   // otherwise redirect to home or we can redirect to a general page not found page

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProfileService } from 'src/app/features/profile/services/profile.service';
 import { Profile } from '../../models/profile';
@@ -20,7 +21,12 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
   private userData: UserData = <UserData>{};
   profileData: Profile = <Profile>{};
 
-  constructor(private authService: AuthService, private profileService: ProfileService, private notificationService: NotificationService) {}
+  constructor(
+    private authService: AuthService,
+    private profileService: ProfileService,
+    private notificationService: NotificationService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     if (this.authService.checkCookie()) {
@@ -49,6 +55,11 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
       );
     }
     this.logoutUser = this.logoutUser.bind(this);
+    this.routeToProfile = this.routeToProfile.bind(this);
+  }
+
+  routeToProfile(): void {
+    this.router.navigate(['/profile/' + this.userData.user_id]);
   }
 
   logoutUser(): void {

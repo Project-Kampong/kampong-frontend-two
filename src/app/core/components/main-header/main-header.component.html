@@ -34,7 +34,7 @@
             <img id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
             <span>Chat</span>
           </div>
-          <div *ngIf="isLoggedIn" class="mobile-btn-row">
+          <div *ngIf="isLoggedIn" class="mobile-btn-row" (click)="routeToProfile()">
             <img id="icon" logo src="../../../../assets/icons/profile-icon.png" alt="" />
             <span>Profile</span>
           </div>
@@ -71,7 +71,8 @@
       <div *ngIf="!isLoggedIn" class="login-btn" routerLink="/login">Login</div>
       <div *ngIf="isLoggedIn" class="init-btn">Initiate</div>
       <div *ngIf="isLoggedIn" class="profile-div">
-        <header-profile *ngIf="isProfileDropdown" [logoutUser]="logoutUser" [profileData]="profileData"></header-profile>
+        <header-profile *ngIf="isProfileDropdown" [logoutUser]="logoutUser" [profileData]="profileData" [routeToProfile]="routeToProfile">
+        </header-profile>
         <img id="profile-picture" src="{{ profileData.profile_picture }}" alt="" />
         <div (click)="toggleProfile()" class="nickname-div">{{ profileData.nickname }}</div>
         <img (click)="toggleProfile()" id="dropdown" src="../../../../assets/icons/dropdown-icon.png" alt="" />
