@@ -12,6 +12,8 @@ import { profileForm } from '../../forms/profile';
 import { UserData } from '../../models/user';
 import { Subscription } from 'rxjs';
 
+import { NzUploadFile } from 'ng-zorro-antd/upload';
+
 @Component({
   selector: 'app-onboarding',
   templateUrl: './onboarding.component.html',
@@ -48,6 +50,9 @@ export class OnboardingComponent implements OnInit, OnDestroy {
                   this.editProfileForm.patchValue(this.profileData);
                   this.isLoggedIn = true;
                   console.log(this.profileData);
+                  if (this.profileData.profile_picture == null) {
+                    this.profileData.profile_picture = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+                  }
                 },
                 (err) => {
                   console.log(err);
@@ -74,14 +79,14 @@ export class OnboardingComponent implements OnInit, OnDestroy {
       this.notificationService.openNotification(this.notificationService.DialogList.setup_profile.validation_error, false);
       return;
     }
-    console.log('somethingsomething');
+    console.log('saveprofile', this.editProfileForm.value);
     this.profileService.updateUserProfile(this.userData['user_id'], this.editProfileForm.value).subscribe(
       (res) => {
         if (true) {
           let ImageFd = new FormData();
           this.profileService.updateUserProfilePic(this.userData['user_id'], ImageFd).subscribe(
             (res) => {
-              this.router.navigate(['/profile']);
+              this.router.navigate(['/']);
             },
             (err) => {
               console.log(err);
@@ -91,20 +96,29 @@ export class OnboardingComponent implements OnInit, OnDestroy {
         //this.authService.LoginResponse.emit();
         console.log(res);
         this.notificationService.openNotification(this.notificationService.DialogList.setup_profile.success, true);
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/']);
       },
       (err) => {
         console.log(err);
         this.notificationService.openNotification(this.notificationService.DialogList.setup_profile.error, false);
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/']);
       },
     );
   }
 
   uploadFile(e: any): void {
-    console.log('Upload file');
-    this.profileData.profile_picture = e;
-    this.editProfileForm.setValue(['profile_picture'], e);
+    const file = e.target.files[0];
+    this.editProfileForm.patchValue({
+      profile_picture: file,
+    });
+
+    // File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.profileData.profile_picture = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+    console.log('uploadfile', this.editProfileForm.value);
   }
 
   getFormValidationErrors() {

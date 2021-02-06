@@ -16,7 +16,7 @@
         <div class="profile-image">
           <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="profile_picture">Profile Picture</nz-form-label>
           <img nz-image width="200px" height="200px" nzSrc="{{ profileData.profile_picture }}" alt="" />
-          <input type="file" accept="image/*" id="file-upload" (change)="uploadFile($event)" />
+          <input type="file" (change)="uploadFile($event)" />
         </div>
 
         <nz-form-item>

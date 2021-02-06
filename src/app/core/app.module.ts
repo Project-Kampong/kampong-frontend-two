@@ -34,6 +34,7 @@ import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzImageModule } from 'ng-zorro-antd/image';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
 registerLocaleData(en);
 
 @NgModule({
@@ -65,6 +66,7 @@ registerLocaleData(en);
     NzGridModule,
     NzImageModule,
     NzDatePickerModule,
+    NzUploadModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
