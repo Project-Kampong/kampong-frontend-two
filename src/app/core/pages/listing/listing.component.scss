@@ -153,6 +153,7 @@
 
     .overview {
       padding: 10px 0px 0px 20px;
+      font-weight: bold;
     }
 
     .stats {
@@ -171,9 +172,10 @@
   .status {
     color: #3a890a;
     display: inline-block;
+    font-weight: bold;
   }
 
-  .member-header {
+  .particular-header {
     display: flex;
 
     .title {
@@ -206,6 +208,14 @@
       justify-content: center;
       align-items: center;
     }
+  }
+
+  .location {
+    color: #a4a4a4;
+  }
+
+  .location-icon {
+    float: left;
   }
 
   @media screen and (min-width: $tablet-large) {
