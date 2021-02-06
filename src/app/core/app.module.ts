@@ -42,6 +42,7 @@ import { HeaderProfileComponent } from '../features/profile/components/header-pr
 import { HeaderNotificationComponent } from '../features/notifications/components/header-notification/header-notification.component';
 import { HeaderChatComponent } from '../features/chat/components/header-chat/header-chat.component';
 registerLocaleData(en);
+import { ListingComponent } from './pages/listing/listing.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ registerLocaleData(en);
     HeaderProfileComponent,
     HeaderNotificationComponent,
     HeaderChatComponent,
+    ListingComponent,
   ],
   imports: [
     BrowserModule,

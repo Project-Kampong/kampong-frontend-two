@@ -5,13 +5,14 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginPageComponent } from './pages/login/login.component';
 import { RegisterPageComponent } from './pages/register/register.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { ListingComponent } from './pages/listing/listing.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'home', component: LoginPageComponent, canActivate: [AuthGuard] },
-  { path: 'listing/:id', component: LoginPageComponent, canActivate: [AuthGuard] },
+  { path: 'listing/:id', component: ListingComponent, canActivate: [AuthGuard] },
   { path: 'create-listing', component: LoginPageComponent, canActivate: [AuthGuard] },
   { path: 'organisation/:id', component: LoginPageComponent, canActivate: [AuthGuard] },
   { path: 'create-organisation', component: LoginPageComponent, canActivate: [AuthGuard] },
