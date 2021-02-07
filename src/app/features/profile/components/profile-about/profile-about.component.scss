@@ -1,0 +1,125 @@
+@import '../../../../../variables.scss';
+
+.wrapper {
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
+}
+
+.photo-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 120px;
+    margin: 10px 0 10px 0;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+}
+
+.info-div {
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  #nickname {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  #about {
+    text-align: center;
+  }
+}
+
+.contact-div {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+
+  img {
+    height: 25px;
+    margin: 0px 5px 0px 5px;
+    aspect-ratio: 1;
+  }
+
+  .chat-button-div {
+    border: black solid 1px;
+    border-radius: 10px;
+    color: black;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #ffcd43;
+  }
+
+  .chat-button-div:hover {
+    opacity: 50%;
+  }
+}
+
+@media screen and (min-width: $tablet-small) {
+  .wrapper {
+    padding-top: 50px;
+    display: flex;
+  }
+  .photo-div {
+    margin: 0 5% 0 10%;
+    img {
+      max-width: 150px;
+    }
+  }
+  .profile-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .info-div {
+    justify-content: left;
+    #nickname {
+      text-align: left;
+    }
+    #about {
+      text-align: left;
+    }
+  }
+
+  .contact-div {
+    .chat-button-div {
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-large) {
+  .wrapper {
+    padding-top: 80px;
+  }
+  .profile-div {
+    justify-content: space-evenly;
+  }
+  .photo-div {
+    margin: 0 10% 0 15%;
+    img {
+      max-width: 180px;
+    }
+  }
+
+  @media screen and (min-width: $desktop-full) {
+    .wrapper {
+      padding-top: 80px;
+    }
+    .profile-div {
+      justify-content: space-evenly;
+    }
+    .photo-div {
+      margin: 0 10% 0 15%;
+      img {
+        max-width: 250px;
+      }
+    }
+  }
+}

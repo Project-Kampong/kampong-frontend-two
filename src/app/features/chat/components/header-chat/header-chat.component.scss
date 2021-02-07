@@ -12,8 +12,19 @@
 }
 
 .chat-title {
-  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
   margin: 5% 10% 5% 10%;
+  #message {
+    font-size: 1.25rem;
+  }
+  #view {
+    font-size: 0.75rem;
+    align-self: center;
+    color: #c69e19;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 .line {

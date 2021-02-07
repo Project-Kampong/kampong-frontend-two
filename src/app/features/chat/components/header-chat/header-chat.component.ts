@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'header-chat',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-chat.component.scss'],
 })
 export class HeaderChatComponent {
-  constructor() {}
+  constructor(private router: Router) {}
+
+  routeToChat(chatId: string = ''): void {
+    this.router.navigate(['/chat/' + chatId]);
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Profile } from 'src/app/core/models/profile';
 
 @Component({
@@ -11,4 +12,5 @@ export class HeaderProfileComponent {
 
   @Input() profileData: Profile = <Profile>{};
   @Input() logoutUser: Function = () => true;
+  @Input() routeToProfile: Function = () => true;
 }

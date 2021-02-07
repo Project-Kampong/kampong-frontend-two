@@ -42,7 +42,13 @@ import { HeaderProfileComponent } from '../features/profile/components/header-pr
 import { HeaderNotificationComponent } from '../features/notifications/components/header-notification/header-notification.component';
 import { HeaderChatComponent } from '../features/chat/components/header-chat/header-chat.component';
 registerLocaleData(en);
-import { ListingComponent } from './pages/listing/listing.component';
+import { ProfilePageComponent } from './pages/profile/profile.component';
+import { ListingPageComponent } from './pages/listing/listing.component';
+import { ProfileAboutComponent } from '../features/profile/components/profile-about/profile-about.component';
+import { ProfileInfoComponent } from '../features/profile/components/profile-info/profile-info.component';
+import { ChatPageComponent } from './pages/chat/chat.component';
+import { ChatNavPreviewComponent } from '../features/chat/components/chat-nav-preview/chat-nav-preview.component';
+import { ChatWindowComponent } from '../features/chat/components/chat-window/chat-window.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +68,13 @@ import { ListingComponent } from './pages/listing/listing.component';
     HeaderProfileComponent,
     HeaderNotificationComponent,
     HeaderChatComponent,
-    ListingComponent,
+    ListingPageComponent,
+    ProfilePageComponent,
+    ProfileAboutComponent,
+    ProfileInfoComponent,
+    ChatPageComponent,
+    ChatNavPreviewComponent,
+    ChatWindowComponent,
   ],
   imports: [
     BrowserModule,
