@@ -35,7 +35,6 @@ export class OnboardingComponent implements OnInit {
   isLoggedIn: boolean = false;
   editProfileForm = new FormGroup({});
   index: number = 0;
-  size: String = 'large';
   isLoading: boolean = false;
 
   ngOnInit() {
