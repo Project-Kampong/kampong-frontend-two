@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="profile-div">
+    <img src="{{ profileData.profile_picture }}" alt="" />
+    <div class="title-div">
+      <div id="nickname">{{ profileData.nickname }}</div>
+      <div id="occupation">{{ profileData.occupation }}</div>
+      <div id="profile" (click)="routeToProfile()">View Profile</div>
+    </div>
+  </div>
+  <div class="line"></div>
+  <div class="link-div">
+    <div>Saved</div>
+    <div>Settings</div>
+    <div (click)="logoutUser()">Logout</div>
+  </div>
+</div>

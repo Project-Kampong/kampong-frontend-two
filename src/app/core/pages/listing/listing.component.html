@@ -1,0 +1,70 @@
+<div class="listing">
+  <main-header></main-header>
+  <div>
+    <img src="../../../../assets/images/listing-banner.png" class="banner" />
+  </div>
+  <div class="listing-card">
+    <div class="container">
+      <div class="listing-profile-picture">
+        <img src="../../../../assets/images/listing-profile-picture.png" />
+      </div>
+      <div class="row">
+        <h3>Project Kampong</h3>
+      </div>
+      <div class="row category">
+        <p>Community</p>
+      </div>
+      <div class="row tagline">
+        <p>Building Good From The Ground Up</p>
+      </div>
+      <div class="row">
+        <img src="../../../../assets/icons/linkedin-icon.png" class="icon" />
+        <img src="../../../../assets/icons/facebook-icon.png" class="icon" />
+        <img src="../../../../assets/icons/twitter-icon.png" class="icon" />
+        <img src="../../../../assets/icons/share-icon.png" class="icon" />
+      </div>
+      <div class="row">
+        <button class="button primary">
+          <img src="../../../../assets/icons/heart-icon.png" class="like-icon" />
+          Like Us
+        </button>
+        <button class="button">Enquire Us</button>
+      </div>
+    </div>
+  </div>
+  <div class="nav-bar">
+    <ul>
+      <li [ngClass]="{ active: activeTab === 'Home' }"><a href="#" (click)="changeTab('Home')">Home</a></li>
+      <li [ngClass]="{ active: activeTab === 'About' }"><a href="#" (click)="changeTab('About')">About</a></li>
+      <li [ngClass]="{ active: activeTab === 'Posts' }"><a href="#" (click)="changeTab('Posts')">Posts</a></li>
+      <li [ngClass]="{ active: activeTab === 'Opportunity' }"><a href="#" (click)="changeTab('Opportunity')">Opportunity</a></li>
+      <li [ngClass]="{ active: activeTab === 'Testimonials' }"><a href="#" (click)="changeTab('Testimonials')">Testimonials</a></li>
+    </ul>
+  </div>
+  <div class="overview-stats">
+    <div class="container">
+      <h4 class="overview">Overview</h4>
+      <div class="row">
+        <ul>
+          <li>#technology</li>
+          <li>#Community</li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="org-detail">Quike facts about the project / organisation. Quike facts about the project / organisation.</div>
+      </div>
+      <div class="row">
+        <div class="links">
+          <p class="website">Visit Website</p>
+          <p class="area">Clementi +3</p>
+        </div>
+      </div>
+    </div>
+    <div class="container stats">
+      <div class="row">Ongoing</div>
+      <div class="row">Last Updated: 4 days ago</div>
+      <div class="row">1,153 likes, 22,5443 views</div>
+    </div>
+  </div>
+  <main-footer></main-footer>
+</div>

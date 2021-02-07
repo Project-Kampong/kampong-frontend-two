@@ -1,0 +1,32 @@
+@import '../../../../variables.scss';
+
+.main-organisation-grid-wrapper {
+}
+
+.grid-div {
+  display: block;
+}
+
+@media screen and (min-width: $mobile-large) {
+  .grid-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: $tablet-small) {
+  .grid-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: $tablet-large) {
+  .grid-div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cell-div {
+    margin: 20px;
+  }
+}

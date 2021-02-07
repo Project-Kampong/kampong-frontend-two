@@ -1,0 +1,42 @@
+.wrapper {
+  height: 100%;
+}
+
+.line {
+  border: 1px solid #000;
+}
+
+.window-div {
+  padding: 0 1% 0 1%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+}
+.chat-header {
+  margin: 10px;
+  flex: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-name {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.mobile-back-btn {
+  align-self: center;
+  font-size: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.message-div {
+  flex: 85%;
+}
+
+.input-div {
+  flex: 10%;
+}

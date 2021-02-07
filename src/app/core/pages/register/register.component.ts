@@ -48,7 +48,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
           this.isLoading = false;
           this.cookieService.set('token', res['token']);
           this.authService.setLogIn(); //temporary method to bypass auth guard
-          this.notificationService.openNotification(this.notificationService.DialogList.register.success, true);
+          this.notificationService.openNotification(this.notificationService.dialogList.register.success, true);
           console.log(res);
         },
         (err) => {

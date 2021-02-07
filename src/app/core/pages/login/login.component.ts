@@ -45,13 +45,13 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         (res) => {
           this.cookieService.set('token', res['token']);
           this.authService.setLogIn(); //temporary method to bypass auth guard
-          this.notificationService.openNotification(this.notificationService.DialogList.login.success, true);
+          this.notificationService.openNotification(this.notificationService.dialogList.login.success, true);
           console.log(this.authService.isLoggedIn);
           this.isLoading = false;
         },
         (err) => {
           console.log(err);
-          this.notificationService.openNotification(this.notificationService.DialogList.login.error, false);
+          this.notificationService.openNotification(this.notificationService.dialogList.login.error, false);
           this.isLoading = false;
         },
         () => {
@@ -64,20 +64,4 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
-
-  /*
-  loginCheck() {
-    if (
-      this.loginCredentials.value.email == "" ||
-      this.loginCredentials.value.password == ""
-    ) {
-      this.SnackbarService.openSnackBar(
-        this.SnackbarService.DialogList.login.error,
-        false
-      );
-    } else {
-      this.authService.userLogin(this.loginCredentials.value);
-    }
-  }
-  */
 }

@@ -1,0 +1,16 @@
+<div class="wrapper" (click)="routeToChatWindow(previewData.chat_id)">
+  <div class="nav-div">
+    <div class="img-div">
+      <img src="../../../../../assets/icons/kampong-icon.ico" alt="" />
+    </div>
+    <div class="content-div">
+      <div class="content-name">
+        {{ previewData.nickname }}
+        <span class="dot" *ngIf="!previewData.recent_message.is_seen"></span>
+      </div>
+      <div class="content-msg">
+        {{ previewData.recent_message.message }}
+      </div>
+    </div>
+  </div>
+</div>
