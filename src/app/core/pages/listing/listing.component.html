@@ -3,7 +3,7 @@
   <div>
     <img src="../../../../assets/images/listing-banner.png" class="banner" />
   </div>
-  <div class="listing-card">
+  <div class="card listing-header">
     <div class="container">
       <div class="listing-profile-picture">
         <img src="../../../../assets/images/listing-profile-picture.png" />
@@ -30,6 +30,7 @@
         </button>
         <button class="button">Enquire Us</button>
       </div>
+      <br />
     </div>
   </div>
   <div class="nav-bar">
@@ -37,47 +38,51 @@
       <li [ngClass]="{ active: activeTab === 'Home' }"><a href="#" (click)="changeTab('Home')">Home</a></li>
       <li [ngClass]="{ active: activeTab === 'About' }"><a href="#" (click)="changeTab('About')">About</a></li>
       <li [ngClass]="{ active: activeTab === 'Posts' }"><a href="#" (click)="changeTab('Posts')">Posts</a></li>
-      <li [ngClass]="{ active: activeTab === 'Opportunity' }"><a href="#" (click)="changeTab('Opportunity')">Opportunity</a></li>
+      <li [ngClass]="{ active: activeTab === 'Opportunity' }"><a href="#" (click)="changeTab('Opportunity')">Opportunities</a></li>
       <li [ngClass]="{ active: activeTab === 'Testimonials' }"><a href="#" (click)="changeTab('Testimonials')">Testimonials</a></li>
     </ul>
   </div>
   <div class="overview-stats">
-    <div class="container">
-      <h4 class="overview">Overview</h4>
-      <div class="row">
-        <ul>
-          <li>#technology</li>
-          <li>#Community</li>
-        </ul>
+    <div class="responsive">
+      <div class="container">
+        <h4 class="overview">Overview</h4>
+        <div class="row">
+          <ul>
+            <li>#technology</li>
+            <li>#Community</li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="org-detail">Quike facts about the project / organisation. Quike facts about the project / organisation.</div>
+        </div>
+        <div class="row">
+          <div class="links">
+            <p class="website">
+              <img src="../../../../assets/icons/globe-icon.png" class="icon" />
+              Visit Website
+            </p>
+            <p class="area"><img src="../../../../assets/icons/location-icon.png" class="icon" />Clementi +3</p>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div class="org-detail">Quike facts about the project / organisation. Quike facts about the project / organisation.</div>
-      </div>
-      <div class="row">
-        <div class="links">
-          <p class="website">
-            <img src="../../../../assets/icons/globe-icon.png" class="icon" />
-            Visit Website
-          </p>
-          <p class="area"><img src="../../../../assets/icons/location-icon.png" class="icon" />Clementi +3</p>
+      <div class="container stats">
+        <div class="row">
+          <img src="../../../../assets/icons/tick-icon.png" class="icon" />
+          <div class="status">Ongoing</div>
+        </div>
+        <div class="row">
+          <img src="../../../../assets/icons/clock-icon.png" class="icon" />
+          Last Updated: 4 days ago
+        </div>
+        <div class="row">
+          <img src="../../../../assets/icons/heart-icon.png" class="icon" />
+          1,153 likes, 22,5443 views
         </div>
       </div>
     </div>
-    <div class="container stats">
-      <div class="row">
-        <img src="../../../../assets/icons/tick-icon.png" class="icon" />
-        <div class="status">Ongoing</div>
-      </div>
-      <div class="row">
-        <img src="../../../../assets/icons/clock-icon.png" class="icon" />
-        Last Updated: 4 days ago
-      </div>
-      <div class="row">
-        <img src="../../../../assets/icons/heart-icon.png" class="icon" />
-        1,153 likes, 22,5443 views
-      </div>
-    </div>
+  </div>
 
+  <div class="card">
     <div class="container">
       <div class="row particular-header">
         <p class="title">Members</p>
@@ -105,7 +110,9 @@
         </div>
       </div>
     </div>
+  </div>
 
+  <div class="card">
     <div class="container">
       <div class="row particular-header">
         <p class="title">Locations</p>
