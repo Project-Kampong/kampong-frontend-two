@@ -130,7 +130,14 @@
           </div>
 
           <div class="btn-container">
-            <button [disabled]="getFormValidationErrors()" (click)="registerUser()" type="submit" class="btn login-btn">
+            <button
+              nz-button
+              [nzLoading]="isLoading"
+              [disabled]="getFormValidationErrors()"
+              (click)="registerUser()"
+              type="submit"
+              class="btn login-btn"
+            >
               Register
               <!-- <span class="loading-btn" *ngIf="showLoading">
                 <img src="../../assets/images/loading-icon.gif" />

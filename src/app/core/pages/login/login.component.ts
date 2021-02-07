@@ -27,7 +27,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   ) {}
 
   loginCredentials = new FormGroup({});
-  loginErrorMsg = false;
+  loginErrorMsg: boolean = false;
+  isLoading: boolean = false;
 
   ngOnInit() {
     this.loginCredentials = this.fb.group({
@@ -36,6 +37,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   }
 
   loginUser(): void {
+    this.isLoading = true;
     const loginDetails = this.loginCredentials.value;
 
     this.subscriptions.push(
@@ -45,10 +47,12 @@ export class LoginPageComponent implements OnInit, OnDestroy {
           this.authService.setLogIn(); //temporary method to bypass auth guard
           this.notificationService.openNotification(this.notificationService.DialogList.login.success, true);
           console.log(this.authService.isLoggedIn);
+          this.isLoading = false;
         },
         (err) => {
           console.log(err);
           this.notificationService.openNotification(this.notificationService.DialogList.login.error, false);
+          this.isLoading = false;
         },
         () => {
           this.router.navigate(['/onboarding']);

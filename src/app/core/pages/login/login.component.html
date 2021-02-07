@@ -86,7 +86,7 @@
           <input placeholder="Password" formControlName="password" type="Password" />
           <span class="error-msg" *ngIf="loginErrorMsg == true"> Invalid Login, try again </span>
           <div class="btn-container">
-            <button (click)="loginUser()" type="submit" class="btn login-btn">Login</button>
+            <button nz-button [nzLoading]="isLoading" (click)="loginUser()" type="submit" class="btn login-btn">Login</button>
             <button routerLink="/register" class="btn register-btn">Register</button>
           </div>
           <p>Forgot <a href="#">Password</a>? too bad</p>
