@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Profile } from 'src/app/core/models/profile';
 
 @Component({

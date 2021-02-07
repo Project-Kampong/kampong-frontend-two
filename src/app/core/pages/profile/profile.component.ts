@@ -10,7 +10,7 @@ import { Profile } from '../../models/profile';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfilePageComponent implements OnInit, OnDestroy {
-  constructor(private router: Router, private route: ActivatedRoute, private profileService: ProfileService) {}
+  constructor(private route: ActivatedRoute, private profileService: ProfileService) {}
 
   subscriptions: Subscription[] = [];
   profileData: Profile = <Profile>{};

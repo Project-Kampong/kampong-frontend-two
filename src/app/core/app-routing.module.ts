@@ -7,6 +7,7 @@ import { RegisterPageComponent } from './pages/register/register.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { ListingPageComponent } from './pages/listing/listing.component';
 import { ProfilePageComponent } from './pages/profile/profile.component';
+import { ChatPageComponent } from './pages/chat/chat.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'profile/:id', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'onboarding', component: OnboardingComponent, canActivate: [AuthGuard] },
   { path: 'search', component: LoginPageComponent },
+  { path: 'chat', component: ChatPageComponent },
   // otherwise redirect to home or we can redirect to a general page not found page
   { path: '**', redirectTo: '' },
 ];

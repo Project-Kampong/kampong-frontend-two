@@ -1,0 +1,53 @@
+@import '../../../../variables.scss';
+
+.wrapper {
+  padding-top: 80px;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.line {
+  border: 1px solid #cacaca;
+}
+
+.window-div {
+  margin: 20px 5% auto 5%;
+  display: flex;
+
+  .preview-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .preview-div {
+    flex: 30%;
+    padding: 10px;
+    background-color: white;
+    min-height: 80vh;
+  }
+  .chat-div {
+    display: none;
+    right: 0;
+    padding: 10px;
+    flex: 70%;
+    background-color: white;
+    min-height: 80vh;
+  }
+}
+
+.chat-window {
+  height: inherit;
+  width: inherit;
+}
+
+@media screen and (min-width: $tablet-large) {
+  .window-div {
+    .chat-div {
+      display: block;
+      .not-selected-div {
+        margin: 5%;
+      }
+    }
+  }
+}

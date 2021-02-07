@@ -1,0 +1,21 @@
+<main-header></main-header>
+<div class="wrapper">
+  <div class="window-div">
+    <div id="preview-div" class="preview-div">
+      <div class="preview-title">Messages</div>
+      <div class="line"></div>
+      <div class="preview-list" *ngFor="let preview of previews">
+        <chat-nav-preview [routeToChatWindow]="routeToChatWindow" [previewData]="preview"></chat-nav-preview>
+      </div>
+    </div>
+    <div class="chat-div" *ngIf="chatId === ''; else chatshow">
+      <div class="not-selected-div">Please select a chat to start messaging.</div>
+    </div>
+    <ng-template #chatshow>
+      <div id="chat-div" class="chat-div">
+        <chat-window [isMobile]="isMobile" [changeWindow]="changeWindow" class="chat-window"></chat-window>
+      </div>
+    </ng-template>
+  </div>
+</div>
+<main-footer></main-footer>

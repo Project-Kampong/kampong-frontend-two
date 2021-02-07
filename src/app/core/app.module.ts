@@ -46,6 +46,9 @@ import { ProfilePageComponent } from './pages/profile/profile.component';
 import { ListingPageComponent } from './pages/listing/listing.component';
 import { ProfileAboutComponent } from '../features/profile/components/profile-about/profile-about.component';
 import { ProfileInfoComponent } from '../features/profile/components/profile-info/profile-info.component';
+import { ChatPageComponent } from './pages/chat/chat.component';
+import { ChatNavPreviewComponent } from '../features/chat/components/chat-nav-preview/chat-nav-preview.component';
+import { ChatWindowComponent } from '../features/chat/components/chat-window/chat-window.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { ProfileInfoComponent } from '../features/profile/components/profile-inf
     ProfilePageComponent,
     ProfileAboutComponent,
     ProfileInfoComponent,
+    ChatPageComponent,
+    ChatNavPreviewComponent,
+    ChatWindowComponent,
   ],
   imports: [
     BrowserModule,
