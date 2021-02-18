@@ -27,8 +27,8 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
     private notificationService: NotificationService,
   ) {}
 
-  registerForm: FormGroup = new FormGroup({});
-  showLoading: boolean = false;
+  registerForm = new FormGroup({});
+  isLoading: boolean = false;
   isVisible: boolean = true;
 
   ngOnInit() {
@@ -41,20 +41,23 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   }
 
   registerUser(): void {
+    this.isLoading = true;
     this.subscriptions.push(
       this.authService.registerUser(this.registerForm.value).subscribe(
         (res) => {
+          this.isLoading = false;
           this.cookieService.set('token', res['token']);
           this.authService.setLogIn(); //temporary method to bypass auth guard
           this.notificationService.openNotification(this.notificationService.dialogList.register.success, true);
           console.log(res);
         },
         (err) => {
+          this.isLoading = false;
           console.log(err);
           this.notificationService.openNotification(err.error.error, false);
         },
         () => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/onboarding']);
           this.openEmailVerification();
         },
       ),

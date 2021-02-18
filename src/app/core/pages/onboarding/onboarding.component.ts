@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ProfileService } from '../../../features/profile/services/profile.service';
 import { NotificationService } from '../../services/notification.service';
+import { UploadService } from '../../services/upload.service';
 // Interface
 import { Profile } from '../../models/profile';
 import { profileForm } from '../../forms/profile';
@@ -17,7 +18,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './onboarding.component.html',
   styleUrls: ['./onboarding.component.scss'],
 })
-export class OnboardingComponent implements OnInit, OnDestroy {
+export class OnboardingComponent implements OnInit {
   subscriptions: Subscription[] = [];
 
   constructor(
@@ -26,6 +27,7 @@ export class OnboardingComponent implements OnInit, OnDestroy {
     private profileService: ProfileService,
     private router: Router,
     private notificationService: NotificationService,
+    private uploadService: UploadService,
   ) {}
 
   private userData: UserData = <UserData>{};
@@ -33,6 +35,7 @@ export class OnboardingComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean = false;
   editProfileForm = new FormGroup({});
   index: number = 0;
+  isLoading: boolean = false;
 
   ngOnInit() {
     this.editProfileForm = this.fb.group({ ...profileForm });
@@ -48,6 +51,9 @@ export class OnboardingComponent implements OnInit, OnDestroy {
                   this.editProfileForm.patchValue(this.profileData);
                   this.isLoggedIn = true;
                   console.log(this.profileData);
+                  if (this.profileData.profile_picture == null) {
+                    this.profileData.profile_picture = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+                  }
                 },
                 (err) => {
                   console.log(err);
@@ -70,41 +76,54 @@ export class OnboardingComponent implements OnInit, OnDestroy {
   }
 
   saveProfile() {
+    this.isLoading = true;
     if (this.getFormValidationErrors()) {
       this.notificationService.openNotification(this.notificationService.dialogList.setup_profile.validation_error, false);
       return;
     }
-    console.log('somethingsomething');
+    // console.log('saveprofile', this.editProfileForm.value);
     this.profileService.updateUserProfile(this.userData['user_id'], this.editProfileForm.value).subscribe(
       (res) => {
-        if (true) {
-          let ImageFd = new FormData();
-          this.profileService.updateUserProfilePic(this.userData['user_id'], ImageFd).subscribe(
-            (res) => {
-              this.router.navigate(['/profile']);
-            },
-            (err) => {
-              console.log(err);
-            },
-          );
-        }
-        //this.authService.LoginResponse.emit();
-        console.log(res);
+        console.log('onboarding response', res);
         this.notificationService.openNotification(this.notificationService.dialogList.setup_profile.success, true);
-        this.router.navigate(['/profile']);
+        this.isLoading = false;
+        this.router.navigate(['/']);
       },
       (err) => {
         console.log(err);
         this.notificationService.openNotification(this.notificationService.dialogList.setup_profile.error, false);
-        this.router.navigate(['/profile']);
+        this.isLoading = false;
+        this.router.navigate(['/']);
       },
     );
   }
 
   uploadFile(e: any): void {
-    console.log('Upload file');
-    this.profileData.profile_picture = e;
-    this.editProfileForm.setValue(['profile_picture'], e);
+    const file = e.target.files[0];
+    this.editProfileForm.patchValue({
+      profile_picture: file,
+    });
+
+    // File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.profileData.profile_picture = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+
+    let ImageFd = new FormData();
+    ImageFd.append('uploads', file);
+    this.uploadService.uploadFile(ImageFd).subscribe(
+      (res) => {
+        console.log(res);
+        this.editProfileForm.patchValue({
+          profile_picture: res.data[0],
+        });
+      },
+      (err) => {
+        console.log(err);
+      },
+    );
   }
 
   getFormValidationErrors() {
@@ -120,26 +139,5 @@ export class OnboardingComponent implements OnInit, OnDestroy {
       }
     });
     return error;
-  }
-
-  ngOnDestroy() {
-    this.subscriptions.forEach((sub) => sub.unsubscribe());
-  }
-
-  checkPageOneErrors(): boolean {
-    if (this.editProfileForm.controls.nickname.errors != null) {
-      return true;
-    }
-    if (this.editProfileForm.controls.dob.errors != null) {
-      return true;
-    }
-    return false;
-  }
-
-  checkPageTwoErrors(): boolean {
-    if (this.editProfileForm.controls.occupation.errors != null) {
-      return true;
-    }
-    return false;
   }
 }

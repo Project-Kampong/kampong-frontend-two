@@ -26,8 +26,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     private notificationService: NotificationService,
   ) {}
 
-  loginCredentials: FormGroup = new FormGroup({});
+  loginCredentials = new FormGroup({});
   loginErrorMsg: boolean = false;
+  isLoading: boolean = false;
 
   ngOnInit() {
     this.loginCredentials = this.fb.group({
@@ -36,6 +37,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   }
 
   loginUser(): void {
+    this.isLoading = true;
     const loginDetails = this.loginCredentials.value;
 
     this.subscriptions.push(
@@ -45,10 +47,12 @@ export class LoginPageComponent implements OnInit, OnDestroy {
           this.authService.setLogIn(); //temporary method to bypass auth guard
           this.notificationService.openNotification(this.notificationService.dialogList.login.success, true);
           console.log(this.authService.isLoggedIn);
+          this.isLoading = false;
         },
         (err) => {
           console.log(err);
           this.notificationService.openNotification(this.notificationService.dialogList.login.error, false);
+          this.isLoading = false;
         },
         () => {
           this.router.navigate(['/onboarding']);
@@ -60,20 +64,4 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
-
-  /*
-  loginCheck() {
-    if (
-      this.loginCredentials.value.email == "" ||
-      this.loginCredentials.value.password == ""
-    ) {
-      this.SnackbarService.openSnackBar(
-        this.SnackbarService.dialogList.login.error,
-        false
-      );
-    } else {
-      this.authService.userLogin(this.loginCredentials.value);
-    }
-  }
-  */
 }

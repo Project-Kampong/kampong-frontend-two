@@ -1,11 +1,12 @@
+<main-header></main-header>
 <section class="container block-content">
   <div nz-col nzSpan="24" class="onboarding-header">
     <h1>Let's Get Started!</h1>
     <p>Welcome to Kampong! Help us get to know you better by completing your profile setup.</p>
   </div>
 
-  <nz-steps nzType="navigation" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)">
-    <nz-step nzTitle="Profile Picture"></nz-step>
+  <nz-steps nzSpan="20" nzType="navigation" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)">
+    <nz-step nzTitle="Profile"></nz-step>
     <nz-step nzTitle="Occupation"></nz-step>
     <nz-step nzTitle="About"></nz-step>
   </nz-steps>
@@ -13,29 +14,22 @@
   <div nz-col nzSpan="24" class="steps-container">
     <div nzSpan="24" class="step-container" *ngIf="index == 0">
       <form nz-form [formGroup]="editProfileForm" class="form-group">
-        <div class="profile-image">
-          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="profile_picture">Profile Picture</nz-form-label>
-          <img nz-image width="200px" height="200px" nzSrc="{{ profileData.profile_picture }}" alt="" />
+        <nz-form-label [nzXs]="24" nzFor="profile-picture" class="form-label">Profile Picture</nz-form-label>
+        <div class="custom-input">
+          <label for="file-upload">
+            <div class="profile-image">
+              <img src="{{ profileData.profile_picture }}" />
+            </div>
+          </label>
           <input type="file" accept="image/*" id="file-upload" (change)="uploadFile($event)" />
         </div>
-
+        <nz-form-label [nzXs]="24" nzRequired nzFor="about" class="form-label">Date of Birth</nz-form-label>
         <nz-form-item>
-          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="nickname">Username</nz-form-label>
-          <nz-form-control nzHasFeedback>
-            <input placeholder="Username" nz-input type="nickname" formControlName="nickname" />
-          </nz-form-control>
-          <!-- Errors Validation -->
-          <div class="error-msg" *ngIf="editProfileForm.controls['nickname'].errors?.required">Username is required (shifted to registration)</div>
-          <div class="error-msg" *ngIf="editProfileForm.controls['nickname'].errors?.maxlength">
-            Username must not be more than 15 characters long.
+          <div>
+            <nz-form-control nzHasFeedback>
+              <nz-date-picker nzSize="large" formControlName="dob" required></nz-date-picker>
+            </nz-form-control>
           </div>
-          <div class="error-msg" *ngIf="editProfileForm.controls['nickname'].errors?.pattern">Special characters not allowed</div>
-          <!-- End of Errors Validation -->
-        </nz-form-item>
-
-        <nz-form-item>
-          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="nickname">Date of Birth</nz-form-label>
-          <nz-date-picker formControlName="dob" required></nz-date-picker>
           <!-- Errors Validation -->
           <div class="error-msg" *ngIf="editProfileForm.controls['dob'].errors?.required">Date Of Birth is required</div>
           <!-- End of Errors Validation -->
@@ -44,8 +38,8 @@
     </div>
     <div nzSpan="24" class="step-container" *ngIf="index == 1">
       <form nz-form [formGroup]="editProfileForm" class="form-group">
-        <nz-form-item class="full-width">
-          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="occupation">Occupation</nz-form-label>
+        <nz-form-item>
+          <nz-form-label [nzXs]="24" nzRequired nzFor="occupation" class="form-label">Occupation</nz-form-label>
           <nz-form-control nzHasFeedback>
             <input placeholder="Occupation" nz-input type="occupation" formControlName="occupation" />
           </nz-form-control>
@@ -62,9 +56,9 @@
     <div nzSpan="24" class="step-container" *ngIf="index == 2">
       <form nz-form [formGroup]="editProfileForm" class="form-group">
         <nz-form-item class="full-width">
-          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="about">About Me</nz-form-label>
+          <nz-form-label [nzXs]="24" nzRequired nzFor="about" class="form-label">About Me</nz-form-label>
           <nz-form-control nzHasFeedback>
-            <input placeholder="Tell us about yourself" nz-input type="about" formControlName="about" />
+            <textarea type="about" formControlName="about" nz-input placeholder="Tell us about yourself" [nzAutosize]="{ minRows: 10 }"></textarea>
           </nz-form-control>
           <!-- Errors Validation -->
           <div class="error-msg" *ngIf="editProfileForm.controls['about'].errors?.required">About is required</div>
@@ -73,7 +67,7 @@
           <!-- End of Errors Validation -->
         </nz-form-item>
       </form>
-      <button nz-button [disabled]="getFormValidationErrors()" class="stepper-complete" (click)="saveProfile()" mat-button matStepperNext>
+      <button nz-button nzType="primary" [nzLoading]="isLoading" [disabled]="getFormValidationErrors()" class="submit-button" (click)="saveProfile()">
         Complete
       </button>
     </div>
