@@ -1,10 +1,28 @@
 <div class="wrapper">
   <div class="window-div">
     <div class="chat-header">
-      <div class="chat-name">Trump</div>
+      <div class="chatroom-pic-div">
+        <img src="../../../../../assets/icons/kampong-icon.ico" alt="" />
+      </div>
+      <div class="chat-name">TrumpExtremelyLongNameLMAO</div>
       <div class="mobile-back-btn" *ngIf="isMobile" (click)="changeWindow()">Back</div>
     </div>
-    <div class="message-div">Chat messages</div>
-    <div class="input-div">Input</div>
+    <div class="message-div">
+      <div class="message-bubble" *ngFor="let m of messages">
+        <div class="message-pic">
+          <img src="../../../../../assets/icons/kampong-icon.ico" alt="" />
+        </div>
+        <div class="message-content">
+          <div class="message-name">{{ m.name }}</div>
+          <div class="message-text">{{ m.message }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="input-div">
+      <form id="input-form" (keydown.enter)="sendMessage($event)">
+        <input autocomplete="off" type="text" id="input" name="input" placeholder="Type your message..." />
+      </form>
+      <div class="send-btn-div" (click)="sendMessage($event)">Send</div>
+    </div>
   </div>
 </div>
