@@ -48,7 +48,7 @@ $primary: #ffcd43;
     .container {
       background-color: white;
       border-radius: 10px;
-      padding: 10px 0px 0px 20px;
+      padding: 10px 20px 0px 20px;
       filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
       margin-bottom: 10px;
     }
@@ -135,6 +135,11 @@ $primary: #ffcd43;
           font-size: 14px;
         }
       }
+
+      .overview-text {
+        text-align: justify;
+      }
+
       .links {
         font-size: 12px;
         color: #ffcd43;
