@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ListingsService } from 'src/app/features/listings/services/listings.service';
-import { OrganisationsService } from 'src/app/features/organisations/services/organisations.service';
+import { ListingsService } from 'src/app/core/services/listings.service';
+import { OrganisationsService } from 'src/app/core/services/organisations.service';
 import { Cause, causes } from '../../constants/causes';
 import { API } from '../../models/api';
 import { Listing } from '../../models/listing';

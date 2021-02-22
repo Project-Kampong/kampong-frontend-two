@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ListingsService } from './../../services/listings.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-listing',
@@ -6,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listing.component.scss'],
 })
 export class ListingPageComponent implements OnInit {
+  subscriptions: Subscription[] = [];
+
   activeTab: string = 'Home';
 
-  constructor() {}
+  constructor(private listingService: ListingsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscriptions.push();
+  }
 
   changeTab(selectedTab: string) {
     this.activeTab = selectedTab;
