@@ -15,17 +15,16 @@ export class ListingPageComponent implements OnInit {
   subscriptions: Subscription[] = [];
   activeTab: string = 'Home';
   listing = <Listing>{};
+  listingId: string = '';
 
   constructor(private listingService: ListingsService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    let listingId: any = ''; //Having trouble with the typescript if i dont use 'any'
-    listingId = this.route.snapshot.paramMap.get('id');
+    this.listingId = this.route.snapshot.paramMap.get('id') as string;
 
     this.subscriptions.push(
-      this.listingService.getSelectedListing(listingId).subscribe((response: API) => {
+      this.listingService.getSelectedListing(this.listingId).subscribe((response: API) => {
         this.listing = (response['data'] as unknown) as Listing; //Is this even correct
-        console.log(this.listing);
       }),
     );
   }
