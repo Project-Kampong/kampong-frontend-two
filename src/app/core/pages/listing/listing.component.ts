@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ListingsService } from './../../services/listings.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -10,6 +10,7 @@ import { Listing } from './../../models/listing';
   selector: 'app-listing',
   templateUrl: './listing.component.html',
   styleUrls: ['./listing.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ListingPageComponent implements OnInit {
   subscriptions: Subscription[] = [];
