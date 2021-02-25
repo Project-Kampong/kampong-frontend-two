@@ -4,8 +4,8 @@
     <div id="preview-div" class="preview-div">
       <div class="preview-title">Messages</div>
       <div class="line"></div>
-      <div class="preview-list" *ngFor="let preview of previews">
-        <chat-nav-preview [routeToChatWindow]="routeToChatWindow" [previewData]="preview"></chat-nav-preview>
+      <div class="preview-list" *ngFor="let chatroom of chatrooms">
+        <chat-nav-preview [routeToChatWindow]="routeToChatWindow" [chatroomData]="chatroom"></chat-nav-preview>
       </div>
     </div>
     <div class="chat-div" *ngIf="chatId === ''; else chatshow">

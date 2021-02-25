@@ -48,9 +48,14 @@ export class ChatWindowComponent {
         timestamp: 'Test',
         message: message,
       };
-      console.log(message);
       this.messages.push(newMessage);
       (<HTMLFormElement>document.getElementById('input-form')).reset();
+      setTimeout(() => this.updateScroll(), 50);
     }
+  }
+
+  updateScroll(): void {
+    const window: HTMLElement | null = document.getElementById('window');
+    window?.scrollTo({ top: window.scrollHeight, behavior: 'smooth' });
   }
 }

@@ -1,28 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Preview, previews } from 'src/test-examples/chat-test';
+import { Subscription } from 'rxjs';
+import { Chatroom } from '../../models/chat';
+import { UserData } from '../../models/user';
+import { AuthService } from '../../services/auth.service';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],
 })
-export class ChatPageComponent implements OnInit {
+export class ChatPageComponent implements OnInit, OnDestroy {
   chatId: string = '';
-  previews: Preview[] = previews;
+  chatrooms: Chatroom[] = [];
   isMobile: boolean = false; //hack to make the thing work first
+  private userData: UserData = <UserData>{};
+  subscriptions: Subscription[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router, private chatService: ChatService) {}
 
   ngOnInit(): void {
     window.scroll(0, 0);
-    console.log(this.route.snapshot.queryParams);
+
     this.chatId = this.route.snapshot.queryParams['id'] ? this.route.snapshot.queryParams['id'] : '';
     this.routeToChatWindow = this.routeToChatWindow.bind(this);
     this.changeWindow = this.changeWindow.bind(this);
     if (window.screen.width < 1024) {
       this.isMobile = true;
     }
+    this.subscriptions.push(
+      this.authService.getUserDataByToken().subscribe((res) => {
+        this.userData = res['data'] as any;
+        this.subscriptions.push(
+          this.chatService.getUserChatrooms().subscribe((res) => {
+            this.chatrooms = res['data'] as Chatroom[];
+          }),
+        );
+      }),
+    );
   }
 
   changeWindow(): void {
@@ -48,5 +64,9 @@ export class ChatPageComponent implements OnInit {
     });
     this.chatId = chatId;
     this.changeWindow();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 }

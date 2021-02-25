@@ -62,6 +62,10 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
     this.router.navigate(['/profile/' + this.userData.user_id]);
   }
 
+  routeToChat(): void {
+    this.router.navigate(['/chat']);
+  }
+
   logoutUser(): void {
     this.isLoggedIn = false;
     this.notificationService.openNotification(this.notificationService.dialogList.logout.success, true);

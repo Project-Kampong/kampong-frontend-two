@@ -30,7 +30,7 @@
             <img id="icon" logo src="../../../../assets/icons/notification-icon.png" alt="" />
             <span>Notifications</span>
           </div>
-          <div *ngIf="isLoggedIn" class="mobile-btn-row">
+          <div *ngIf="isLoggedIn" class="mobile-btn-row" (click)="routeToChat()">
             <img id="icon" logo src="../../../../assets/icons/chat-icon.png" alt="" />
             <span>Chat</span>
           </div>
