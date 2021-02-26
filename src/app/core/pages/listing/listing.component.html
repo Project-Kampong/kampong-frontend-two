@@ -1,15 +1,15 @@
 <div class="listing">
   <main-header></main-header>
-  <div>
-    <img src="../../../../assets/images/listing-banner.png" class="banner" />
+  <div class="banner">
+    <img src="../../../../assets/images/listing-banner.png" />
   </div>
-  <div class="listing-card">
-    <div class="container">
-      <div class="listing-profile-picture">
+  <div class="body">
+    <div class="container listing-container text-center">
+      <div class="row profile-picture">
         <img src="../../../../assets/images/listing-profile-picture.png" />
       </div>
       <div class="row">
-        <h3>Project Kampong</h3>
+        <h3 class="title">Project Kampong</h3>
       </div>
       <div class="row category">
         <p>Community</p>
@@ -17,11 +17,11 @@
       <div class="row tagline">
         <p>Building Good From The Ground Up</p>
       </div>
-      <div class="row">
-        <img src="../../../../assets/icons/linkedin-icon.png" class="icon" />
-        <img src="../../../../assets/icons/facebook-icon.png" class="icon" />
-        <img src="../../../../assets/icons/twitter-icon.png" class="icon" />
-        <img src="../../../../assets/icons/share-icon.png" class="icon" />
+      <div class="row icon">
+        <img src="../../../../assets/icons/linkedin-icon.png" />
+        <img src="../../../../assets/icons/facebook-icon.png" />
+        <img src="../../../../assets/icons/twitter-icon.png" />
+        <img src="../../../../assets/icons/share-icon.png" />
       </div>
       <div class="row">
         <button class="button primary">
@@ -30,40 +30,134 @@
         </button>
         <button class="button">Enquire Us</button>
       </div>
+      <br />
     </div>
-  </div>
-  <div class="nav-bar">
-    <ul>
-      <li [ngClass]="{ active: activeTab === 'Home' }"><a href="#" (click)="changeTab('Home')">Home</a></li>
-      <li [ngClass]="{ active: activeTab === 'About' }"><a href="#" (click)="changeTab('About')">About</a></li>
-      <li [ngClass]="{ active: activeTab === 'Posts' }"><a href="#" (click)="changeTab('Posts')">Posts</a></li>
-      <li [ngClass]="{ active: activeTab === 'Opportunity' }"><a href="#" (click)="changeTab('Opportunity')">Opportunity</a></li>
-      <li [ngClass]="{ active: activeTab === 'Testimonials' }"><a href="#" (click)="changeTab('Testimonials')">Testimonials</a></li>
-    </ul>
-  </div>
-  <div class="overview-stats">
-    <div class="container">
-      <h4 class="overview">Overview</h4>
-      <div class="row">
-        <ul>
-          <li>#technology</li>
-          <li>#Community</li>
-        </ul>
+
+    <div class="nav-bar">
+      <ul>
+        <li [ngClass]="{ active: activeTab === 'Home' }"><a href="#" (click)="changeTab('Home')">Home</a></li>
+        <li [ngClass]="{ active: activeTab === 'About' }"><a href="#" (click)="changeTab('About')">About</a></li>
+        <li [ngClass]="{ active: activeTab === 'Posts' }"><a href="#" (click)="changeTab('Posts')">Posts</a></li>
+        <li [ngClass]="{ active: activeTab === 'Opportunity' }"><a href="#" (click)="changeTab('Opportunity')">Opportunities</a></li>
+        <li [ngClass]="{ active: activeTab === 'Testimonials' }"><a href="#" (click)="changeTab('Testimonials')">Testimonials</a></li>
+      </ul>
+    </div>
+    <div class="overview-stats-container">
+      <div class="container overview">
+        <h4 class="title">Overview</h4>
+        <div class="row">
+          <ul>
+            <li>#technology</li>
+            <li>#Community</li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="">Quike facts about the project / organisation. Quike facts about the project / organisation.</div>
+        </div>
+        <div class="row links">
+          <div class="website">
+            <img src="../../../../assets/icons/globe-icon.png" />
+            Visit Website
+          </div>
+          <div class="area"><img src="../../../../assets/icons/location-icon.png" />Clementi +3</div>
+        </div>
       </div>
-      <div class="row">
-        <div class="org-detail">Quike facts about the project / organisation. Quike facts about the project / organisation.</div>
-      </div>
-      <div class="row">
-        <div class="links">
-          <p class="website">Visit Website</p>
-          <p class="area">Clementi +3</p>
+      <div class="container stats">
+        <div class="row">
+          <img src="../../../../assets/icons/tick-icon.png" class="icon" />
+          Ongoing
+        </div>
+        <div class="row">
+          <img src="../../../../assets/icons/clock-icon.png" class="icon" />
+          Last Updated: 4 days ago
+        </div>
+        <div class="row">
+          <img src="../../../../assets/icons/heart-icon.png" class="icon" />
+          1,153 likes, 22,5443 views
         </div>
       </div>
     </div>
-    <div class="container stats">
-      <div class="row">Ongoing</div>
-      <div class="row">Last Updated: 4 days ago</div>
-      <div class="row">1,153 likes, 22,5443 views</div>
+    <div class="container post-container">
+      <div class="row post-author">
+        <img src="../../../../assets/icons/member-icon.png" />
+        <div class="post-name">
+          Wayne
+          <div class="timestamp">2 days ago</div>
+        </div>
+        <div class="post-position">
+          <p>Project Lead</p>
+        </div>
+      </div>
+      <div class="row post-subject">We are hiring</div>
+      <div class="row post-body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ibulum a bibendum metus. Aenean dapibus imperdiet ipsum nec egestas. Aenean mattis
+        lacus orci, quis ...
+      </div>
+      <div class="row post-stats">
+        <div class="post-like">
+          <img src="../../../../assets/icons/heart-icon.png" class="icon" />
+          436
+        </div>
+        <div class="post-comment">
+          <img src="../../../../assets/icons/comment-icon.png" class="icon" />
+          21
+        </div>
+        <div class="comment-btn">Comment</div>
+        <div class="post-view">
+          <img src="../../../../assets/icons/eye-icon.png" class="icon" />
+          3.2k
+        </div>
+      </div>
+    </div>
+
+    <div class="container member-container">
+      <div class="row member-header">
+        <div class="title">Members</div>
+        <div class="number">(2)</div>
+      </div>
+      <div class="members-info">
+        <div class="member-info">
+          <img src="../../../../assets/icons/member-icon.png" class="member-icon" />
+          <div>
+            <div class="member-name">Wayne</div>
+            <div class="member-position">Project Lead</div>
+          </div>
+          <div class="member-email">
+            <img src="../../../../assets/icons/email-icon.png" class="member-icon" />
+            wayne123@gmail.com
+          </div>
+        </div>
+
+        <div class="member-info">
+          <img src="../../../../assets/icons/member-icon.png" class="member-icon" />
+          <div>
+            <div class="member-name">Wayne</div>
+            <div class="member-position">Project Lead</div>
+          </div>
+          <div class="member-email">
+            <img src="../../../../assets/icons/email-icon.png" class="member-icon" />
+            wayne123@gmail.com
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container location-container">
+      <div class="row location-header">
+        <div class="title">Locations</div>
+        <div class="number">(2)</div>
+      </div>
+      <div class="row">
+        <img src="../../../../assets/icons/location-icon.png" class="icon location-icon" />
+        <div class="location">Location one</div>
+      </div>
+      <div class="row">
+        <img src="../../../../assets/icons/location-icon.png" class="icon location-icon" />
+        <div class="location">Location one</div>
+      </div>
+      <div class="row">
+        <img src="../../../../assets/images/google-location.png" alt="" class="location-image" />
+      </div>
     </div>
   </div>
   <main-footer></main-footer>
