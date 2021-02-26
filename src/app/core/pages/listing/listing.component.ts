@@ -25,6 +25,7 @@ export class ListingPageComponent implements OnInit {
 
     this.subscriptions.push(
       this.listingService.getSelectedListing(this.listingId).subscribe((response: API) => {
+        console.log(response);
         this.listing = (response['data'] as unknown) as Listing; //Is this even correct
       }),
     );

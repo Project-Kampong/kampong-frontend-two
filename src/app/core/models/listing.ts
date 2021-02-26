@@ -47,6 +47,7 @@ export interface Listing {
   tagline: string;
   listing_title: string;
   updated_on: string;
+  tags: string[];
 }
 
 export interface ListingLikes {
