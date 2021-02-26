@@ -40,6 +40,9 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
                   this.profileData = res['data'] as any;
                   this.isLoggedIn = true;
                   console.log(this.profileData);
+                  if (this.profileData.profile_picture == null) {
+                    this.profileData.profile_picture = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+                  }
                 },
                 (err) => {
                   console.log(err);

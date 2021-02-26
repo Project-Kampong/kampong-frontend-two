@@ -81,7 +81,7 @@ export class OnboardingComponent implements OnInit {
       this.notificationService.openNotification(this.notificationService.dialogList.setup_profile.validation_error, false);
       return;
     }
-    // console.log('saveprofile', this.editProfileForm.value);
+    console.log('saveprofile', this.editProfileForm.value);
     this.profileService.updateUserProfile(this.userData['user_id'], this.editProfileForm.value).subscribe(
       (res) => {
         console.log('onboarding response', res);
