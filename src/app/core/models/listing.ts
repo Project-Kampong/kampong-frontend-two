@@ -47,7 +47,7 @@ export interface Listing {
   tagline: string;
   listing_title: string;
   updated_on: string;
-  tags: string[];
+  tags: ListingHashtags[];
 }
 
 export interface ListingLikes {
@@ -99,7 +99,7 @@ export interface ListingMilestones {
 }
 
 export interface ListingHashtags {
-  listing_id: string;
+  hashtag_id: number;
   tag: string;
 }
 
