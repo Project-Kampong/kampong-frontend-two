@@ -51,6 +51,8 @@ import { ProfileInfoComponent } from '../features/profile/components/profile-inf
 import { ChatPageComponent } from './pages/chat/chat.component';
 import { ChatNavPreviewComponent } from '../features/chat/components/chat-nav-preview/chat-nav-preview.component';
 import { ChatWindowComponent } from '../features/chat/components/chat-window/chat-window.component';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { TabComponent } from './components/tabs/tab/tab.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { ChatWindowComponent } from '../features/chat/components/chat-window/cha
     ChatPageComponent,
     ChatNavPreviewComponent,
     ChatWindowComponent,
+    TabsComponent,
+    TabComponent,
   ],
   imports: [
     BrowserModule,
