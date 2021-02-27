@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { API } from '../../../core/models/api';
+import { API } from '../models/api';
 import { Observable } from 'rxjs';
-import { environment } from '../../../core/environments/environment';
+import { environment } from '../environments/environment';
 
 interface OptionObject {
   headers: HttpHeaders;

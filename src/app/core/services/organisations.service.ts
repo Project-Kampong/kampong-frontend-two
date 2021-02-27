@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CreateOrganisation, UpdateOrganisation } from '../../../core/models/organisation';
-import { API } from '../../../core/models/api';
+import { CreateOrganisation, UpdateOrganisation } from '../models/organisation';
+import { API } from '../models/api';
 
 // Services Import
 import { Observable } from 'rxjs';
-import { environment } from '../../../core/environments/environment';
-import { AuthService } from '../../../core/services/auth.service';
+import { environment } from '../environments/environment';
+import { AuthService } from './auth.service';
 
 interface OptionObject {
   headers: HttpHeaders;
