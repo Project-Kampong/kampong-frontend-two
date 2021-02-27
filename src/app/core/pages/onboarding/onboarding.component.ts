@@ -59,7 +59,6 @@ export class OnboardingComponent implements OnInit {
           },
           (err) => {
             console.log(err);
-
             this.router.navigate(['/login']);
           },
         ),

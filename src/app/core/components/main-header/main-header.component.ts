@@ -48,7 +48,6 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
           },
           (err) => {
             console.log(err);
-            console.log('User is not logged in');
           },
         ),
       );
@@ -59,6 +58,10 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
 
   routeToProfile(): void {
     this.router.navigate(['/profile/' + this.userData.user_id]);
+  }
+
+  routeToChat(): void {
+    this.router.navigate(['/chat']);
   }
 
   logoutUser(): void {

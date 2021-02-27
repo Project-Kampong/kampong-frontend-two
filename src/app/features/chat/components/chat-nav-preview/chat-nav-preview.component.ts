@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Preview } from 'src/test-examples/chat-test';
+import { Chatroom } from 'src/app/core/models/chat';
 
 @Component({
   selector: 'chat-nav-preview',
@@ -9,6 +9,6 @@ import { Preview } from 'src/test-examples/chat-test';
 export class ChatNavPreviewComponent {
   constructor() {}
 
-  @Input() previewData: Preview = <Preview>{};
+  @Input() chatroomData: Chatroom = <Chatroom>{};
   @Input() routeToChatWindow: Function = () => true;
 }

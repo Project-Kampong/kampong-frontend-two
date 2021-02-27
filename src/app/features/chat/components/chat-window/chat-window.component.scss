@@ -1,9 +1,22 @@
+@import '../../../../../variables.scss';
+
 .wrapper {
   height: 100%;
 }
 
 .line {
   border: 1px solid #000;
+}
+
+.chatroom-pic-div {
+  margin: 10px;
+  img {
+    width: inherit;
+    max-width: 60px;
+    padding: 2px;
+    border-radius: 50%;
+    border: #cacaca solid 2px;
+  }
 }
 
 .window-div {
@@ -18,15 +31,20 @@
   margin: 10px;
   flex: 5%;
   display: flex;
-  justify-content: space-between;
 }
 
 .chat-name {
+  width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: auto 0 auto 0;
   font-weight: 600;
   font-size: 1.25rem;
 }
 
 .mobile-back-btn {
+  margin: 0 0 0 auto;
+  width: fit-content;
   align-self: center;
   font-size: 1rem;
   text-decoration: underline;
@@ -34,9 +52,81 @@
 }
 
 .message-div {
-  flex: 85%;
+  max-height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 85%;
+
+  .message-bubble {
+    margin: 5px;
+    padding: 5px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 10px;
+  }
+  .message-pic {
+    width: fit-content;
+    margin: 5px;
+    img {
+      max-width: 40px;
+      padding: 2px;
+      border-radius: 50%;
+      border: #cacaca solid 2px;
+    }
+  }
+  .message-content {
+    margin-left: 5px;
+    margin-right: 5px;
+    .message-name {
+      font-weight: 600;
+    }
+  }
 }
 
 .input-div {
-  flex: 10%;
+  margin: 5px;
+  height: inherit;
+  flex: 5%;
+  display: flex;
+
+  form {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 100%;
+    margin: auto 0 auto 0;
+    height: inherit;
+    input {
+      border-radius: 5px;
+      flex-basis: 100%;
+      border: none;
+      margin: auto 5px auto 5px;
+    }
+    textarea:focus,
+    input:focus {
+      outline: none;
+    }
+  }
+
+  .send-btn-div {
+    width: fit-content;
+    border-radius: 5px;
+    background-color: #ffcd43;
+    font-weight: 600;
+    padding: 0 5px 0 5px;
+    margin: auto 0 auto 0;
+    cursor: pointer;
+  }
+
+  .send-btn-div:hover {
+    opacity: 50%;
+  }
+}
+
+@media screen and (min-width: $tablet-large) {
+  .mobile-back-btn {
+    display: none;
+  }
 }
