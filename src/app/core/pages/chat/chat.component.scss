@@ -1,7 +1,7 @@
 @import '../../../../variables.scss';
 
 .wrapper {
-  padding-top: 80px;
+  padding-top: 50px;
   min-height: 100vh;
   background-color: #f2f2f2;
 }
@@ -11,6 +11,7 @@
 }
 
 .window-div {
+  max-height: 80vh;
   margin: 20px 5% auto 5%;
   display: flex;
 
@@ -24,9 +25,10 @@
     flex: 30%;
     padding: 10px;
     background-color: white;
-    min-height: 80vh;
+    height: 80vh;
   }
   .chat-div {
+    max-width: 100%;
     display: none;
     right: 0;
     padding: 10px;
@@ -42,6 +44,9 @@
 }
 
 @media screen and (min-width: $tablet-large) {
+  .wrapper {
+    padding-top: 80px;
+  }
   .window-div {
     .chat-div {
       display: block;

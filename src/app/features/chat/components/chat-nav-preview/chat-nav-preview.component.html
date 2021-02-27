@@ -1,15 +1,15 @@
-<div class="wrapper" (click)="routeToChatWindow(previewData.chat_id)">
+<div class="wrapper" (click)="routeToChatWindow(chatroomData.chatroom_id)">
   <div class="nav-div">
     <div class="img-div">
-      <img src="../../../../../assets/icons/kampong-icon.ico" alt="" />
+      <img [src]="chatroomData.chatroom_pic != null ? chatroomData.chatroom_pic : '../../../../../assets/icons/kampong-icon.ico'" alt="" />
     </div>
     <div class="content-div">
       <div class="content-name">
-        {{ previewData.nickname }}
-        <span class="dot" *ngIf="!previewData.recent_message.is_seen"></span>
+        {{ chatroomData.chatroom_name ? chatroomData.chatroom_name : 'Deleted Account' }}
+        <span class="dot" *ngIf="false"></span>
       </div>
       <div class="content-msg">
-        {{ previewData.recent_message.message }}
+        {{ chatroomData.most_recent_msg.chatmessage_text ? chatroomData.most_recent_msg.chatmessage_text : '' }}
       </div>
     </div>
   </div>

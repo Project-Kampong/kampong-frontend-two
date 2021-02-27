@@ -46,7 +46,6 @@ export class LoginPageComponent implements OnInit, OnDestroy {
           this.cookieService.set('token', res['token']);
           this.authService.setLogIn(); //temporary method to bypass auth guard
           this.notificationService.openNotification(this.notificationService.dialogList.login.success, true);
-          console.log(this.authService.isLoggedIn);
           this.isLoading = false;
         },
         (err) => {
