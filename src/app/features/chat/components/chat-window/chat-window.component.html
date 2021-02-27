@@ -2,19 +2,19 @@
   <div class="window-div">
     <div class="chat-header">
       <div class="chatroom-pic-div">
-        <img src="../../../../../assets/icons/kampong-icon.ico" alt="" />
+        <img [src]="chatroomPic ? chatroomPic : '../../../../../assets/icons/kampong-icon.ico'" alt="" />
       </div>
-      <div class="chat-name">TrumpExtremelyLongNameLMAO</div>
+      <div class="chat-name">{{ chatroomName ? chatroomName : 'Deleted Account' }}</div>
       <div class="mobile-back-btn" *ngIf="isMobile" (click)="changeWindow()">Back</div>
     </div>
     <div class="message-div" id="window">
       <div class="message-bubble" *ngFor="let m of messages">
         <div class="message-pic">
-          <img src="../../../../../assets/icons/kampong-icon.ico" alt="" />
+          <img [src]="users[m.user_id].profile_picture ? users[m.user_id].profile_picture : '../../../../../assets/icons/kampong-icon.ico'" alt="" />
         </div>
         <div class="message-content">
-          <div class="message-name">{{ m.name }}</div>
-          <div class="message-text">{{ m.message }}</div>
+          <div class="message-name">{{ users[m.user_id].nickname }}</div>
+          <div class="message-text">{{ m.chatmessage_text }}</div>
         </div>
       </div>
     </div>

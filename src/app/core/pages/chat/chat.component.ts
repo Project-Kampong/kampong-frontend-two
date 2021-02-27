@@ -13,9 +13,12 @@ import { ChatService } from '../../services/chat.service';
 })
 export class ChatPageComponent implements OnInit, OnDestroy {
   chatId: string = '';
+  selectedChatroom: Chatroom = <Chatroom>{};
   chatrooms: Chatroom[] = [];
+  selectedChatroomName: string = '';
+  selectedChatroomPic: string = '';
   isMobile: boolean = false; //hack to make the thing work first
-  private userData: UserData = <UserData>{};
+  userData: UserData = <UserData>{}; //let's use mobx to store userdata next time
   subscriptions: Subscription[] = [];
 
   constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router, private chatService: ChatService) {}
@@ -35,6 +38,7 @@ export class ChatPageComponent implements OnInit, OnDestroy {
         this.subscriptions.push(
           this.chatService.getUserChatrooms().subscribe((res) => {
             this.chatrooms = res['data'] as Chatroom[];
+            this.selectedChatroom = this.chatrooms.filter((c) => this.chatId === c.chatroom_id)[0];
           }),
         );
       }),
@@ -63,6 +67,9 @@ export class ChatPageComponent implements OnInit, OnDestroy {
       queryParams: { id: chatId },
     });
     this.chatId = chatId;
+    const selectedChatroom = this.chatrooms.filter((c) => this.chatId === c.chatroom_id)[0];
+    this.selectedChatroomName = selectedChatroom.chatroom_name;
+    this.selectedChatroomPic = selectedChatroom.chatroom_pic;
     this.changeWindow();
   }
 

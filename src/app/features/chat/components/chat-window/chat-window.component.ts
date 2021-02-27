@@ -1,10 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { messages } from 'src/test-examples/chat-test';
+import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Chatroom, Message } from 'src/app/core/models/chat';
+import { ChatService } from 'src/app/core/services/chat.service';
 
-interface Message {
-  name: string;
-  timestamp: string;
-  message: string;
+interface User {
+  nickname: string;
+  profile_picture: string;
 }
 
 @Component({
@@ -12,29 +14,50 @@ interface Message {
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.scss'],
 })
-export class ChatWindowComponent {
+export class ChatWindowComponent implements OnInit, OnDestroy, OnChanges {
   @Input() changeWindow: Function = () => true;
   @Input() isMobile: boolean = false;
-  constructor() {}
+  @Input() chatroomName: string = '';
+  @Input() chatroomPic: string = '';
+  @Input() chatId: string = '';
+  @Input() userId: string = '';
 
-  messages: Message[] = [
-    {
-      name: 'Darren',
-      timestamp: '12:09',
-      message: 'Howdy',
-    },
-    {
-      name: 'Don',
-      timestamp: '12:19',
-      message:
-        'Hey there. This is a very long message that I need to test to see if the mobile and desktop versions appear properly. Becuase I am scared that if I do it this way like Telegram instead of Slack, the thing might look very ugly and I need to ensure that the profile pic and everythin remains the correct shape and stuff hehehehehehehehehehehehehe',
-    },
-    {
-      name: 'Darren',
-      timestamp: '12:09',
-      message: 'Kampong rocks ftw',
-    },
-  ];
+  constructor(private route: ActivatedRoute, private chatService: ChatService) {}
+
+  subscriptions: Subscription[] = [];
+  messages: Message[] = [];
+  users: { [key: string]: User } = {};
+
+  ngOnInit(): void {
+    setTimeout(() => this.forceScroll(), 50);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
+  }
+
+  ngOnChanges(): void {
+    this.chatService.getChatroom(this.chatId).subscribe(
+      (res) => {
+        console.log(res);
+        const chatDetails = res['data'] as any;
+        chatDetails['users'].forEach((user: any) => {
+          this.users[user.user_id] = {
+            nickname: user['nickname'],
+            profile_picture: user['profile_picture'],
+          };
+          this.messages = chatDetails['messages'];
+        });
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        console.log(this.users);
+        setTimeout(() => this.forceScroll(), 50);
+      },
+    );
+  }
 
   sendMessage(e: Event): void {
     e.preventDefault();
@@ -43,19 +66,35 @@ export class ChatWindowComponent {
       if (message.length === 0) {
         return;
       }
-      const newMessage: Message = {
-        name: 'Darren',
-        timestamp: 'Test',
-        message: message,
-      };
-      this.messages.push(newMessage);
-      (<HTMLFormElement>document.getElementById('input-form')).reset();
-      setTimeout(() => this.updateScroll(), 50);
+      this.chatService
+        .postMessage({
+          chatroom_id: this.chatId,
+          chatmessage_text: message,
+        })
+        .subscribe(
+          (res) => {
+            if (res.success) {
+              this.messages.push(res['data'] as any);
+            }
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => {
+            (<HTMLFormElement>document.getElementById('input-form')).reset();
+            setTimeout(() => this.updateScroll(), 50);
+          },
+        );
     }
   }
 
   updateScroll(): void {
     const window: HTMLElement | null = document.getElementById('window');
     window?.scrollTo({ top: window.scrollHeight, behavior: 'smooth' });
+  }
+
+  forceScroll(): void {
+    const window: HTMLElement | null = document.getElementById('window');
+    window?.scrollTo({ top: window.scrollHeight });
   }
 }
