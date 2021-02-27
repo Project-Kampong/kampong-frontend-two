@@ -24,13 +24,15 @@
 }
 
 .error-msg {
-  display: flex;
+  display: block;
   color: #f44336;
   font-size: 0.9rem;
   text-align: right;
-  font-weight: 300;
+  font-weight: 600;
   padding-top: 1rem;
+  margin-bottom: 1rem;
   width: 100%;
+  float: right;
 }
 
 .form-label {
@@ -67,11 +69,14 @@
   }
   &:hover {
     position: relative;
+    display: block;
+    background-color: #fff;
+    z-index: 9;
     &:after {
       content: '\f067';
       font-family: 'Font Awesome\ 5 Free';
-      font-weight: 900;
-      font-size: 2rem;
+      font-weight: 2000;
+      font-size: 3rem;
       color: white;
       background: rgba(0, 0, 0, 0.5);
       position: absolute;
@@ -84,16 +89,11 @@
       align-items: center;
       justify-content: center;
       border: 7px solid #fed45f;
+      content: '+';
+      z-index: 9;
+      cursor: pointer;
     }
   }
-}
-
-.error-msg {
-  display: block;
-  color: #f44336;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
 }
 
 .steps-form-container {
@@ -130,5 +130,26 @@
 
 .submit-button {
   float: right;
+  width: 100%;
+}
+
+.button-container {
+  padding: 1rem 0rem;
+  width: 100%;
+}
+
+.previous-button {
+  float: left;
+  width: 45%;
+  height: 2.3rem;
+}
+
+.next-button {
+  float: right;
+  width: 45%;
+  height: 2.3rem;
+}
+
+.full-width {
   width: 100%;
 }

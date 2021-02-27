@@ -47,7 +47,6 @@ export class ProfileService {
    * @param data Updated Profile Data
    */
   updateUserProfile(userId: string, data: Object) {
-    console.log('updateuserprofile', data);
     return this.httpClient.put<API>(this.url + 'api/users/' + userId + '/profiles', data, this.authService.getAuthOptions());
   }
 

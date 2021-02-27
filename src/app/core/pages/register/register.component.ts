@@ -72,7 +72,6 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
         <br /><p></p><a target="_blank" href="https://github.com/Project-Kampong/kampong-frontend">Resend activation email</a>`,
       600,
     );
-    console.log('open email verification');
   }
 
   getFormValidationErrors(): boolean {

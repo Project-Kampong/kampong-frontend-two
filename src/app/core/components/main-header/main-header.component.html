@@ -16,7 +16,14 @@
       <div class="nav-pane">
         <div class="mobile-btn-div">
           <div *ngIf="isLoggedIn" class="mobile-profile-div">
-            <img src="{{ profileData.profile_picture }}" alt="" />
+            <img
+              [src]="
+                profileData.profile_picture == null
+                  ? 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+                  : profileData.profile_picture
+              "
+              alt=""
+            />
             <div class="mobile-profile-info">
               <div id="nickname">{{ profileData.nickname }}</div>
               <div id="occupation">{{ profileData.occupation }}</div>
@@ -73,7 +80,15 @@
       <div *ngIf="isLoggedIn" class="profile-div">
         <header-profile *ngIf="isProfileDropdown" [logoutUser]="logoutUser" [profileData]="profileData" [routeToProfile]="routeToProfile">
         </header-profile>
-        <img id="profile-picture" src="{{ profileData.profile_picture }}" alt="" />
+        <img
+          id="profile-picture"
+          [src]="
+            profileData.profile_picture == null
+              ? 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+              : profileData.profile_picture
+          "
+          alt=""
+        />
         <div (click)="toggleProfile()" class="nickname-div">{{ profileData.nickname }}</div>
         <img (click)="toggleProfile()" id="dropdown" src="../../../../assets/icons/dropdown-icon.png" alt="" />
       </div>
@@ -82,13 +97,3 @@
     <header-chat *ngIf="isChatDropdown"></header-chat>
   </div>
 </div>
-
-<!--
-        <ul>
-        <li routerLink="/">Home</li>
-        <li>Notifications</li>
-        <li>Chat</li>
-        <li>Initiate</li>
-        <li routerLink="/login">Login</li>
-      </ul>
--->

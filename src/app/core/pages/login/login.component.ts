@@ -54,7 +54,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
           this.isLoading = false;
         },
         () => {
-          this.router.navigate(['/onboarding']);
+          this.router.navigate(['/']);
         },
       ),
     );

@@ -50,10 +50,6 @@ export class OnboardingComponent implements OnInit {
                   this.profileData = res['data'] as any;
                   this.editProfileForm.patchValue(this.profileData);
                   this.isLoggedIn = true;
-                  console.log(this.profileData);
-                  if (this.profileData.profile_picture == null) {
-                    this.profileData.profile_picture = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
-                  }
                 },
                 (err) => {
                   console.log(err);
@@ -80,10 +76,8 @@ export class OnboardingComponent implements OnInit {
       this.notificationService.openNotification(this.notificationService.dialogList.setup_profile.validation_error, false);
       return;
     }
-    // console.log('saveprofile', this.editProfileForm.value);
     this.profileService.updateUserProfile(this.userData['user_id'], this.editProfileForm.value).subscribe(
       (res) => {
-        console.log('onboarding response', res);
         this.notificationService.openNotification(this.notificationService.dialogList.setup_profile.success, true);
         this.isLoading = false;
         this.router.navigate(['/']);
@@ -114,7 +108,6 @@ export class OnboardingComponent implements OnInit {
     ImageFd.append('uploads', file);
     this.uploadService.uploadFile(ImageFd).subscribe(
       (res) => {
-        console.log(res);
         this.editProfileForm.patchValue({
           profile_picture: res.data[0],
         });

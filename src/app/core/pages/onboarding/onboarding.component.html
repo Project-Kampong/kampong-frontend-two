@@ -18,7 +18,14 @@
         <div class="custom-input">
           <label for="file-upload">
             <div class="profile-image">
-              <img src="{{ profileData.profile_picture }}" />
+              <img
+                [src]="
+                  profileData.profile_picture == null
+                    ? 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+                    : profileData.profile_picture
+                "
+                alt=""
+              />
             </div>
           </label>
           <input type="file" accept="image/*" id="file-upload" (change)="uploadFile($event)" />
@@ -34,6 +41,10 @@
           <div class="error-msg" *ngIf="editProfileForm.controls['dob'].errors?.required">Date Of Birth is required</div>
           <!-- End of Errors Validation -->
         </nz-form-item>
+        <div class="button-container">
+          <button nz-button nzType="default" class="previous-button" disabled="true">Previous</button>
+          <button nz-button nzType="primary" class="next-button" (click)="onIndexChange(1)">Next</button>
+        </div>
       </form>
     </div>
     <div nzSpan="24" class="step-container" *ngIf="index == 1">
@@ -51,6 +62,10 @@
           <div class="error-msg" *ngIf="editProfileForm.controls['occupation'].errors?.pattern">Special characters not allowed</div>
           <!-- End of Errors Validation -->
         </nz-form-item>
+        <div class="button-container">
+          <button nz-button nzType="default" class="previous-button" (click)="onIndexChange(0)">Previous</button>
+          <button nz-button nzType="primary" class="next-button" (click)="onIndexChange(2)">Next</button>
+        </div>
       </form>
     </div>
     <div nzSpan="24" class="step-container" *ngIf="index == 2">
@@ -67,9 +82,15 @@
           <!-- End of Errors Validation -->
         </nz-form-item>
       </form>
-      <button nz-button nzType="primary" [nzLoading]="isLoading" [disabled]="getFormValidationErrors()" class="submit-button" (click)="saveProfile()">
+      <!-- <button nz-button nzType="primary" [nzLoading]="isLoading" [disabled]="getFormValidationErrors()" class="submit-button" (click)="saveProfile()">
         Complete
-      </button>
+      </button> -->
+      <div class="button-container">
+        <button nz-button nzType="default" class="previous-button" (click)="onIndexChange(1)">Previous</button>
+        <button nz-button nzType="primary" [nzLoading]="isLoading" [disabled]="getFormValidationErrors()" class="next-button" (click)="saveProfile()">
+          Complete
+        </button>
+      </div>
     </div>
   </div>
 </section>
