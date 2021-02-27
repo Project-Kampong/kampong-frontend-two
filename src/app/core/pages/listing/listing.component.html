@@ -9,13 +9,13 @@
         <img src="../../../../assets/images/listing-profile-picture.png" />
       </div>
       <div class="row">
-        <h3 class="title">Project Kampong</h3>
+        <h3 class="title">{{ listing.listing_title }}</h3>
       </div>
       <div class="row category">
-        <p>Community</p>
+        <p>{{ listing.category }}</p>
       </div>
       <div class="row tagline">
-        <p>Building Good From The Ground Up</p>
+        <p>{{ listing.mission }}</p>
       </div>
       <div class="row icon">
         <img src="../../../../assets/icons/linkedin-icon.png" />
@@ -42,17 +42,25 @@
         <li [ngClass]="{ active: activeTab === 'Testimonials' }"><a href="#" (click)="changeTab('Testimonials')">Testimonials</a></li>
       </ul>
     </div>
+
+    <!-- <app-tabs [id]="listingId" class="nav-bar">
+      <app-tab tabTitle="Home"> Tab 1 content </app-tab>
+      <app-tab tabTitle="About"> Tab 3 content </app-tab>
+      <app-tab tabTitle="Posts"> Tab 4 content </app-tab>
+      <app-tab tabTitle="Opportunity"> Tab 5 content </app-tab>
+      <app-tab tabTitle="Testimonials"> Tab 6 content </app-tab>
+    </app-tabs> -->
+
     <div class="overview-stats-container">
       <div class="container overview">
         <h4 class="title">Overview</h4>
         <div class="row">
           <ul>
-            <li>#technology</li>
-            <li>#Community</li>
+            <li *ngFor="let tag of listing.tags">{{ tag.tag }}</li>
           </ul>
         </div>
         <div class="row">
-          <div class="">Quike facts about the project / organisation. Quike facts about the project / organisation.</div>
+          <div class="overview-text">{{ listing.overview }}</div>
         </div>
         <div class="row links">
           <div class="website">
@@ -65,7 +73,7 @@
       <div class="container stats">
         <div class="row">
           <img src="../../../../assets/icons/tick-icon.png" class="icon" />
-          Ongoing
+          {{ listing.listing_status }}
         </div>
         <div class="row">
           <img src="../../../../assets/icons/clock-icon.png" class="icon" />

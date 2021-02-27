@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ProfileService } from 'src/app/features/profile/services/profile.service';
+import { ProfileService } from 'src/app/core/services/profile.service';
 import { Profile } from '../../models/profile';
 import { UserData } from '../../models/user';
 import { AuthService } from '../../services/auth.service';

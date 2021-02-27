@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 // Services
 import { AuthService } from '../../services/auth.service';
-import { ProfileService } from '../../../features/profile/services/profile.service';
+import { ProfileService } from '../../services/profile.service';
 import { NotificationService } from '../../services/notification.service';
 import { UploadService } from '../../services/upload.service';
 // Interface

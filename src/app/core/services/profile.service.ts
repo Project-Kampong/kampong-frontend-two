@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthService } from '../../../core/services/auth.service';
-import { environment } from '../../../core/environments/environment';
+import { AuthService } from './auth.service';
+import { environment } from '../environments/environment';
 
-import { API } from '../../../core/models/api';
+import { API } from '../models/api';
 import { Observable } from 'rxjs';
 
 interface OptionObject {

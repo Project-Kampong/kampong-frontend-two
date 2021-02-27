@@ -13,11 +13,11 @@ import {
   UpdateListingJobs,
   UpdateListing,
   UpdateListingFAQ,
-} from '../../../core/models/listing';
+} from '../models/listing';
 import { Observable } from 'rxjs';
-import { AuthService } from '../../../core/services/auth.service';
-import { environment } from '../../../core/environments/environment';
-import { API } from '../../../core/models/api';
+import { AuthService } from './auth.service';
+import { environment } from '../environments/environment';
+import { API } from '../models/api';
 
 interface OptionObject {
   headers: HttpHeaders;
