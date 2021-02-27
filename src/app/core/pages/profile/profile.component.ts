@@ -23,7 +23,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       this.profileService.getUserProfile(this.profileId).subscribe(
         (data) => {
           this.profileData = (data['data'] as unknown) as Profile;
-          console.log(this.profileData);
         },
         (err) => {
           console.log(err);

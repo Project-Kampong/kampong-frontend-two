@@ -18,7 +18,14 @@
         <div class="custom-input">
           <label for="file-upload">
             <div class="profile-image">
-              <img src="{{ profileData.profile_picture }}" />
+              <img
+                [src]="
+                  profileData.profile_picture == null
+                    ? 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+                    : profileData.profile_picture
+                "
+                alt=""
+              />
             </div>
           </label>
           <input type="file" accept="image/*" id="file-upload" (change)="uploadFile($event)" />

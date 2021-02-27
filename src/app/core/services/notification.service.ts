@@ -94,13 +94,9 @@ export class NotificationService {
 
   openNotification(message: string, success: boolean) {
     if (success) {
-      this.notification.success('Success!', message).onClick.subscribe(() => {
-        console.log('notification success!');
-      });
+      this.notification.success('Success!', message).onClick.subscribe(() => {});
     } else {
-      this.notification.error('Error:', message).onClick.subscribe(() => {
-        console.log('notification error!');
-      });
+      this.notification.error('Error:', message).onClick.subscribe(() => {});
     }
   }
 }
