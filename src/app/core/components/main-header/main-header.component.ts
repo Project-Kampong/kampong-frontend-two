@@ -39,7 +39,6 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
                 (res) => {
                   this.profileData = res['data'] as any;
                   this.isLoggedIn = true;
-                  console.log(this.profileData);
                 },
                 (err) => {
                   console.log(err);
@@ -49,7 +48,6 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
           },
           (err) => {
             console.log(err);
-            console.log('User is not logged in');
           },
         ),
       );

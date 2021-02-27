@@ -39,7 +39,6 @@ export class ChatWindowComponent implements OnInit, OnDestroy, OnChanges {
   ngOnChanges(): void {
     this.chatService.getChatroom(this.chatId).subscribe(
       (res) => {
-        console.log(res);
         const chatDetails = res['data'] as any;
         chatDetails['users'].forEach((user: any) => {
           this.users[user.user_id] = {
@@ -53,7 +52,6 @@ export class ChatWindowComponent implements OnInit, OnDestroy, OnChanges {
         console.log(err);
       },
       () => {
-        console.log(this.users);
         setTimeout(() => this.forceScroll(), 50);
       },
     );
