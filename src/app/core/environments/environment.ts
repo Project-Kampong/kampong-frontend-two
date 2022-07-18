@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://dev.kampong.app/',
+  apiUrl: 'https://kampong.herokuapp.com/',
   // apiUrl: 'http://localhost:5000/',
 };
 
